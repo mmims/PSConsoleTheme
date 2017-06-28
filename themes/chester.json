@@ -1,0 +1,38 @@
+{
+  "name": "Chester",
+  "description": "Console theme based on the Chester Atom syntax theme.",
+  "repository": "https://github.com/mmims",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "paletteFormat": "BGR",
+  "palette": {
+    "ColorTable00": "0x43362c",
+    "ColorTable01": "0xe5be8a",
+    "ColorTable02": "0xaae6c7",
+    "ColorTable03": "0xb3a999",
+    "ColorTable04": "0x3fc8ff",
+    "ColorTable05": "0xc4716c",
+    "ColorTable06": "0x7c7467",
+    "ColorTable07": "0xece6db",
+    "ColorTable08": "0x4f443b",
+    "ColorTable09": "0xd68a28",
+    "ColorTable10": "0x8dc916",
+    "ColorTable11": "0xdede27",
+    "ColorTable12": "0x5b5efa",
+    "ColorTable13": "0x8e70ff",
+    "ColorTable14": "0x6deffe",
+    "ColorTable15": "0xffffff"
+  },
+  "tokens": {
+    "Command": "Blue",
+    "Comment": "DarkGreen",
+    "Keyword": "Green",
+    "Member": "Blue",
+    "Number": "Magenta",
+    "Operator": "Green",
+    "Parameter": "Gray",
+    "String": "Cyan",
+    "Type": "DarkYellow",
+    "Variable": "Blue"
+  }
+}
