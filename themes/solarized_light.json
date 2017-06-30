@@ -1,9 +1,9 @@
 {
-  "name": "Solarized Dark",
+  "name": "Solarized Light",
   "description": "Console theme based on the Solarized color scheme.",
   "repository": "https://github.com/mmims",
-  "background": "Black",
-  "foreground": "DarkCyan",
+  "background": "White",
+  "foreground": "DarkGreen",
   "palette": {
     "Black": "#002b36",
     "DarkBlue": "#839496",
@@ -24,14 +24,14 @@
   },
   "tokens": {
     "Command": "Blue",
-    "Comment": "DarkGreen",
+    "Comment": "DarkCyan",
     "Keyword": "Green",
     "Member": "Blue",
     "Number": "Magenta",
     "Operator": "Green",
-    "Parameter": "Gray",
+    "Parameter": "DarkGray",
     "String": "Cyan",
-    "Type": "DarkYellow",
+    "Type": "DarkBlue",
     "Variable": "Blue"
   }
 }

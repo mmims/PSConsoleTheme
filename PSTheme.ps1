@@ -1,3 +1,23 @@
+function Get-PSTheme {
+    [CmdletBinding()]
+    param(
+        [Parameter(Position=0)]
+        [string] $Name,
+
+        [switch] $Full
+    )
+    if ([System.String]::IsNullOrEmpty($Name)) {
+        $PSTheme.Themes
+    } else {
+        foreach ($theme in $PSTheme.Themes) {
+            if ($theme.name -like $Name) {
+                $theme
+                break
+            }
+        }
+    }
+}
+
 #-- Private Module Functions --#
 function Assert {
     param(
@@ -6,6 +26,31 @@ function Assert {
     )
     if (!$conditionToCheck) {
         throw("Assert: " + $failureMessage)
+    }
+}
+
+function Confirm-PaletteObject {
+    param(
+        [Parameter(ValueFromPipeline=$true, Mandatory=$true)]
+        [ValidateNotNull()]
+        $PaletteObject
+    )
+    Process {
+        $valid = $true
+        $missing = @()
+        foreach ($color in ([System.ConsoleColor]).GetEnumNames()) {
+            if (!(Get-Member $color -InputObject $PaletteObject -MemberType NoteProperty)) {
+                $valid = $false
+                $missing += $color
+            } else {
+                if (!($PaletteObject.($color) -imatch "[0x|#]?[\da-f]{6}")) {
+                    throw ($msgs.error_invalid_palette_value -f $color,$PaletteObject.($color))
+                }
+            }
+        }
+        if(!$valid) {
+            throw ($msgs.error_incomplete_palette -f ($missing -join ", "))
+        }
     }
 }
 
@@ -23,32 +68,24 @@ function Confirm-ThemeObject {
         [ValidateNotNullOrEmpty()]
         [string] $Repository,
 
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
+        [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
         [ValidateNotNullOrEmpty()]
         [System.ConsoleColor] $Background,
 
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
+        [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
         [ValidateNotNullOrEmpty()]
         [System.ConsoleColor] $Foreground,
 
-        [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        $InputObject
-    )
-    foreach ($Object in $InputObject) {
-        if($Object.palette) { $Object.palette | Confirm-PaletteObject -ErrorAction Stop }
-    }
-}
+        [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
+        [ValidateNotNull()]
+        [System.Object] $Palette,
 
-function Confirm-PaletteObject {
-    param(
-        [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        $InputObject
+        [Parameter(ValueFromPipelineByPropertyName=$true)]
+        [ValidateNotNull()]
+        [PSCustomObject] $Tokens
     )
-    $InputObject
-    foreach ($Color in ([System.ConsoleColor]).GetEnumNames()) {
-        if(!($InputObject.$Color -imatch "0x[0-9a-f]{6}")) {
-            throw ("Palette color definition {0} is not valid for {1}." -f $InputObject.$Color,$Color)
-        }
+    Process {
+        $true
     }
 }
 
@@ -62,8 +99,9 @@ function LoadThemeConfiguration {
     Assert (Test-Json $configJson) ($msgs.error_invalid_json -f $configFile)
 
     $config = $configJson | ConvertFrom-Json
-    $config | Confirm-ThemeObject -ErrorAction Stop
-    $config
+    if($config | Confirm-ThemeObject -ErrorAction Continue) {
+        $PSTheme.Themes += $config
+    }
 }
 
 function LoadThemes {
@@ -77,6 +115,24 @@ function LoadThemes {
         Write-Host $theme.Name
         LoadThemeConfiguration $theme.FullName
     }
+}
+
+function Set-TokenColors {
+    param(
+        $TokenColors
+    )
+    foreach ($token in @("Comment","Keyword","String","Operator","Variable","Command","Parameter","Type","Number","Member")) {
+        if (Get-Member $token -InputObject $TokenColors) {
+            Set-PSReadlineOption $token -ForegroundColor $TokenColors.($token)
+        }
+    }
+}
+
+function Set-PaletteColors {
+    param(
+        $PaletteColors
+    )
+
 }
 
 function Test-Json {
@@ -97,10 +153,13 @@ DATA msgs {
     ConvertFrom-StringData @'
         error_invalid_json = Invalid JSON data {0}. File not parsed.
         error_invalid_path = Could not find path {0}.
+        error_incomplete_palette = Incomplete palette. Missing: {0}.
+        error_invalid_palette_value = "{0}" color value {1} is invalid.
 '@
 }
 
 $Script:PSTheme = @{}
 $PSTheme.Version = [System.Version]::new("0.1.0")
+$PSTheme.Themes = @()
 
 LoadThemes
