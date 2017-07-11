@@ -2,10 +2,10 @@ function Import-ThemeConfiguration {
     param(
         [Parameter(Mandatory=1)][string]$configFile
     )
-    Assert (Test-Path $configFile -PathType Leaf) ($msgs.error_invalid_path -f $configFile)
+    Assert (Test-Path $configFile -PathType Leaf) ($import_msgs.error_invalid_path -f $configFile)
 
     $configJson = (Get-Content $configFile) -join "`n"
-    Assert (Test-Json $configJson) ($msgs.error_invalid_json -f $configFile)
+    Assert (Test-Json $configJson) ($import_msgs.error_invalid_json -f $configFile)
 
     try {
         $config = $configJson | ConvertFrom-Json
@@ -14,12 +14,12 @@ function Import-ThemeConfiguration {
         }
     }
     catch {
-        Write-Error (($msgs.error_invalid_config -f $configFile) + "`n" + $_.Exception.Message)
+        Write-Error (($import_msgs.error_invalid_config -f $configFile) + "`n" + $_)
         return $null
     }
 }
 
-DATA msgs {
+DATA import_msgs {
     ConvertFrom-StringData @'
         error_invalid_json = Invalid JSON data {0}. File not parsed.
         error_invalid_path = Could not find path {0}.

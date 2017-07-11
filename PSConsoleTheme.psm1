@@ -15,12 +15,12 @@ foreach ($import in @($Public + $Private)) {
     Write-Host "success!"
 }
 
-$manifest = Test-ModuleManifest (Join-Path $PSScriptRoot 'PSTheme.psd1') -WarningAction SilentlyContinue
+$manifest = Test-ModuleManifest (Join-Path $PSScriptRoot 'PSConsoleTheme.psd1') -WarningAction SilentlyContinue
 
-# Create PSTheme object
-$Script:PSTheme = @{}
-$PSTheme.Version = $manifest.Version # [System.Version]::new("0.1.0")
-$PSTheme.Themes = Get-Theme
+# Create PSConsoleTheme object
+$Script:PSConsoleTheme = @{}
+$PSConsoleTheme.Version = $manifest.Version # [System.Version]::new("0.1.0")
+$PSConsoleTheme.Themes = Get-Theme
 
 # Export module functions
-Export-ModuleMember -Function $Public.BaseName -Variable 'PSTheme'
+Export-ModuleMember -Function $Public.BaseName -Variable 'PSConsoleTheme'

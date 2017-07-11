@@ -1,9 +1,9 @@
-function Set-PSTheme {
+function Set-PSConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param ()
     DynamicParam {
-        if ($PSTheme.Themes.Count -gt 0) {
+        if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = "Name"
 
             $attributes = New-Object System.Management.Automation.ParameterAttribute
@@ -13,7 +13,7 @@ function Set-PSTheme {
 
             $attributeColl = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
             $attributeColl.Add($attributes)
-            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSTheme.Themes.Keys)))
+            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSConsoleTheme.Themes.Keys)))
 
             $dynParam = New-Object System.Management.Automation.RuntimeDefinedParameter($ParameterName, [string], $attributeColl)
             $paramDict = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
@@ -29,7 +29,7 @@ function Set-PSTheme {
                 Write-Debug "Name = '$Name'"
 
                 if ($Name) {
-                    $theme = $PSTheme.Themes[$Name]
+                    $theme = $PSConsoleTheme.Themes[$Name]
                     Set-ColorPalette $theme
                     Set-TokenColorConfiguration $theme.tokens
                 }
