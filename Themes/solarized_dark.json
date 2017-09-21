@@ -4,6 +4,8 @@
   "repository": "https://github.com/mmims",
   "background": "Black",
   "foreground": "DarkCyan",
+  "popupBackground": "White",
+  "popupForeground": "DarkYellow",
   "palette": {
     "Black": "#002b36",
     "DarkBlue": "#839496",

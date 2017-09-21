@@ -1,11 +1,11 @@
 function Get-BGRValue {
     param (
         [Parameter(Mandatory=$true,Position=0)]
-        [string]$Value,
+        [string] $Value,
 
         [Parameter(Mandatory=$false,Position=1)]
         [ValidateSet('BGR','RGB')]
-        [string]$Format='RGB'
+        [string] $Format='RGB'
     )
 
     switch ($Format) {

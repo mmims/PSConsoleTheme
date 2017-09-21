@@ -1,6 +1,6 @@
 function Test-Json {
     param(
-        [string]$data
+        [string] $data
     )
     try {
         ConvertFrom-Json $data -ErrorAction Stop

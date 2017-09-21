@@ -1,7 +1,7 @@
 function Set-ColorPalette {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     param(
-        [System.Object]$Theme
+        [System.Object] $Theme
     )
     $colorTable = @{
         'Black'       = 'ColorTable00'

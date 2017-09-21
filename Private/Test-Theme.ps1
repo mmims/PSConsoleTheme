@@ -21,8 +21,16 @@ function Test-Theme {
         [System.ConsoleColor] $Foreground,
 
         [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [ValidateNotNullOrEmpty()]
+        [System.ConsoleColor] $PopupBackground,
+
+        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [ValidateNotNullOrEmpty()]
+        [System.ConsoleColor] $PopupForeground,
+
+        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
         [ValidateSet('RGB','BGR')]
-        [string]$PaletteFormat,
+        [string] $PaletteFormat,
 
         [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
         [ValidateNotNull()]

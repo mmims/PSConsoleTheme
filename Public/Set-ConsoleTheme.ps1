@@ -1,15 +1,13 @@
-function Get-PSConsoleTheme {
+function Set-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
-    Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Refresh')]
-        [switch]$Refresh
-    )
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
+    Param ()
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = "Name"
 
             $attributes = New-Object System.Management.Automation.ParameterAttribute
-            $attributes.Mandatory = $false
+            $attributes.Mandatory = $true
             $attributes.ParameterSetName = 'ByName'
             $attributes.Position = 0
 
@@ -26,17 +24,14 @@ function Get-PSConsoleTheme {
     }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
-            'Refresh' {
-                $PSConsoleTheme.Themes = Get-Theme
-            }
             Default {
                 $Name = $PSBoundParameters['Name']
                 Write-Debug "Name = '$Name'"
 
                 if ($Name) {
-                    $PSConsoleTheme.Themes[$Name]
-                } else {
-                    $PSConsoleTheme.Themes
+                    $theme = $PSConsoleTheme.Themes[$Name]
+                    Set-ColorPalette $theme
+                    Set-TokenColorConfiguration $theme.tokens
                 }
             }
         }

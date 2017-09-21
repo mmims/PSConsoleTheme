@@ -1,6 +1,6 @@
 function Get-Theme {
     param(
-        [string]$themeDir = "$PSScriptRoot\..\themes"
+        [string] $themeDir = "$PSScriptRoot\..\themes"
     )
     Assert (Test-Path $themeDir -PathType Container) ($theme_msgs.error_invalid_path -f $themeDir)
     $configFiles = Get-ChildItem $themeDir "*.json"
