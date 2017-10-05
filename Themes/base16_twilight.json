@@ -1,0 +1,39 @@
+{
+  "name": "Base16 Twilight",
+  "description": "Console theme based on the Twilight color scheme.",
+  "repository": "https://github.com/mmims",
+  "background": "Black",    // base00
+  "foreground": "DarkCyan", // base05
+  "popupBackground": "DarkGreen", // base02
+  "popupForeground": "Gray",      // base06
+  "palette": {
+    "Black":       "#1e1e1e", // base00
+    "DarkGray":    "#323537", // base01
+    "DarkGreen":   "#464b50", // base02
+    "DarkYellow":  "#5f5a60", // base03
+    "DarkBlue":    "#838184", // base04
+    "DarkCyan":    "#a7a7a7", // base05
+    "Gray":        "#c3c3c3", // base06
+    "White":       "#ffffff", // base07
+    "Red":         "#cf6a4c", // base08
+    "DarkRed":     "#cda869", // base09
+    "Yellow":      "#f9ee98", // base0A
+    "Green":       "#8f9d6a", // base0B
+    "Cyan":        "#afc4db", // base0C
+    "Blue":        "#7587a6", // base0D
+    "Magenta":     "#9b859d", // base0E
+    "DarkMagenta": "#9b703f"  // base0F
+  },
+  "tokens": {
+    "Command":   "Blue",       // base0D
+    "Comment":   "DarkYellow", // base03
+    "Keyword":   "Magenta",    // base0E
+    "Member":    "Blue",       // base0D
+    "Number":    "DarkRed",    // base09
+    "Operator":  "Cyan",       // base0C
+    "Parameter": "DarkRed",    // base09
+    "String":    "Green",      // base0B
+    "Type":      "Yellow",     // base0A
+    "Variable":  "Red"         // base08
+  }
+}

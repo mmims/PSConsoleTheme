@@ -6,21 +6,27 @@ function Import-UserConfiguration {
 
     $configFile = Join-Path $Path '.psconsoletheme'
     if (Test-Path $configFile) {
-        $configJson = (Get-Content $configFile) -join "`n"
-        Assert (Test-Json $configJson) ($user_config_msgs.error_invalid_json -f $configFile)
+        $configJson = Get-Content $configFile -Raw
+        if (!(Test-Json $configJson)) {
+            return @{}
+        }
 
         try {
-            $config = $configJson | ConvertFrom-Json
+            $config = $configJson | Remove-JsonComments | ConvertFrom-Json
             if($config | Test-User) {
-                Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme].tokens
+                if ($Script:PSConsoleTheme.Themes.Contains($config.Theme)) {
+                    Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme].tokens
+                }
                 return $config
             }
         }
         catch {
             Write-Error (($user_config_msgs.error_invalid_config -f $configFile) + "`n" + $_)
-            return $null
+            return @{}
         }
     }
+
+    return @{}
 }
 
 DATA user_config_msgs {

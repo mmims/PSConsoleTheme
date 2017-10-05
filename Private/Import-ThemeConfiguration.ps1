@@ -4,11 +4,11 @@ function Import-ThemeConfiguration {
     )
     Assert (Test-Path $configFile -PathType Leaf) ($theme_config_msgs.error_invalid_path -f $configFile)
 
-    $configJson = (Get-Content $configFile) -join "`n"
+    $configJson = Get-Content $configFile -Raw
     Assert (Test-Json $configJson) ($theme_config_msgs.error_invalid_json -f $configFile)
 
     try {
-        $config = $configJson | ConvertFrom-Json
+        $config = $configJson | Remove-JsonComments | ConvertFrom-Json
         if(($config | Test-Theme) -and ($config.palette | Test-Palette)) {
             return $config
         }

@@ -23,7 +23,7 @@ $PSConsoleTheme.Version = $manifest.Version # [System.Version]::new("0.1.0")
 $PSConsoleTheme.Themes = Get-Theme
 
 # Import user configuration
-$PSConsoleTheme.User = Import-UserConfiguration $PSScriptRoot
+$PSConsoleTheme.User = Import-UserConfiguration
 
 # Export module functions
 Export-ModuleMember -Function $Public.BaseName -Variable 'PSConsoleTheme'

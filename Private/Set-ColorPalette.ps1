@@ -32,10 +32,19 @@ function Set-ColorPalette {
         $null = New-Item $key
     }
 
+    # Set color table
     foreach ($color in ([System.ConsoleColor]).GetEnumNames()) {
         if ($colorTable.ContainsKey($color) -and (Get-Member $color -InputObject $palette -MemberType NoteProperty)) {
             $bgrValue = Get-BGRValue $palette.($color) $format
             Set-ItemProperty -Path $key -Name $colorTable[$color] -Value $bgrValue -Force
         }
+    }
+
+    # Set background/foreground
+    $bgfgValue = Get-BFValue $Theme.background $Theme.foreground
+    Set-ItemProperty -Path $key -Name 'ScreenColors' -Value $bgfgValue -Force
+    if ((Get-Member popupBackground -InputObject $Theme -MemberType NoteProperty) -and (Get-Member popupForeground -InputObject $Theme -MemberType NoteProperty)) {
+        $bgfgValue = Get-BFValue $Theme.popupBackground $Theme.popupForeground
+        Set-ItemProperty -Path $key -Name 'PopupColors' -Value $bgfgValue -Force
     }
 }

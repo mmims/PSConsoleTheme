@@ -7,13 +7,18 @@ function Get-Theme {
 
     $themes = @{}
     foreach ($config in $configFiles) {
-        $theme = Import-ThemeConfiguration $config.FullName
-        if ($theme) {
-            if ($themes.ContainsKey($theme.name)) {
-                Write-Warning ($theme_msgs.warning_ambiguous_theme -f $theme.name, $config)
-                break
+        try
+        {
+            $theme = Import-ThemeConfiguration $config.FullName -ErrorAction Stop
+            if ($theme) {
+                if ($themes.ContainsKey($theme.name)) {
+                    Write-Warning ($theme_msgs.warning_ambiguous_theme -f $theme.name, $config)
+                    break
+                }
+                $themes.Add($theme.name, $theme)
             }
-            $themes.Add($theme.name, $theme)
+        } catch {
+            Write-Warning $_
         }
     }
 

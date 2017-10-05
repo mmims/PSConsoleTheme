@@ -1,6 +1,9 @@
 function Get-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     Param (
+        [Parameter(Mandatory=$false)]
+        [switch] $All,
+
         [Parameter(Mandatory=$false,ParameterSetName='Refresh')]
         [switch]$Refresh
     )
@@ -35,8 +38,15 @@ function Get-ConsoleTheme {
 
                 if ($Name) {
                     $PSConsoleTheme.Themes[$Name]
+                } elseif ($All) {
+                    $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name
                 } else {
-                    $PSConsoleTheme.Themes
+                    $currentTheme = $PSConsoleTheme.User.Theme
+                    if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {
+                        $PSConsoleTheme.Themes[$currentTheme]
+                    } else {
+                        'No console theme set.'
+                    }
                 }
             }
         }

@@ -1,0 +1,39 @@
+{
+  "name": "",
+  "description": "Console theme based on the color scheme.",
+  "repository": "https://github.com/mmims",
+  "background": "Black",    // base00
+  "foreground": "DarkCyan", // base05
+  "popupBackground": "DarkGreen", // base02
+  "popupForeground": "Gray",      // base06
+  "palette": {
+    "Black":       "", // base00
+    "DarkGray":    "", // base01
+    "DarkGreen":   "", // base02
+    "DarkYellow":  "", // base03
+    "DarkBlue":    "", // base04
+    "DarkCyan":    "", // base05
+    "Gray":        "", // base06
+    "White":       "", // base07
+    "Red":         "", // base08
+    "DarkRed":     "", // base09
+    "Yellow":      "", // base0A
+    "Green":       "", // base0B
+    "Cyan":        "", // base0C
+    "Blue":        "", // base0D
+    "Magenta":     "", // base0E
+    "DarkMagenta": ""  // base0F
+  },
+  "tokens": {
+    "Command":   "Blue",       // base0D
+    "Comment":   "DarkYellow", // base03
+    "Keyword":   "Magenta",    // base0E
+    "Member":    "Blue",       // base0D
+    "Number":    "DarkRed",    // base09
+    "Operator":  "Cyan",       // base0C
+    "Parameter": "DarkRed",    // base09
+    "String":    "Green",      // base0B
+    "Type":      "Yellow",     // base0A
+    "Variable":  "Red"         // base08
+  }
+}

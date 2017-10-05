@@ -1,0 +1,58 @@
+{
+  "name": "Base16 Dark",
+  "description": "Console theme based on the Base16 default dark color scheme.",
+  "repository": "https://github.com/mmims",
+  "background": "Black",    // base00
+  "foreground": "DarkCyan", // base05
+  "popupBackground": "DarkGreen", // base02
+  "popupForeground": "Gray",      // base06
+  "palette": {
+    "Black":       "#181818", // base00
+    "DarkGray":    "#282828", // base01
+    "DarkGreen":   "#383838", // base02
+    "DarkYellow":  "#585858", // base03
+    "DarkBlue":    "#b8b8b8", // base04
+    "DarkCyan":    "#d8d8d8", // base05
+    "Gray":        "#e8e8e8", // base06
+    "White":       "#f8f8f8", // base07
+    "Red":         "#ab4642", // base08
+    "DarkRed":     "#dc9656", // base09
+    "Yellow":      "#f7ca88", // base0A
+    "Green":       "#a1b56c", // base0B
+    "Cyan":        "#86c1b9", // base0C
+    "Blue":        "#7cafc2", // base0D
+    "Magenta":     "#ba8baf", // base0E
+    "DarkMagenta": "#a16946"  // base0F
+  },
+  "tokens": {
+    "Command":   "Blue",       // base0D
+    "Comment":   "DarkYellow", // base03
+    "Keyword":   "Magenta",    // base0E
+    "Member":    "Blue",       // base0D
+    "Number":    "DarkRed",    // base09
+    "Operator":  "Cyan",       // base0C
+    "Parameter": "DarkRed",    // base09
+    "String":    "Green",      // base0B
+    "Type":      "Yellow",     // base0A
+    "Variable":  "Red"         // base08
+  }
+}
+
+// Base16  | PowerShell  | ColorTable
+//---------|-------------|------------
+// base00  | Black       | 00
+// base01  | DarkGray    | 08
+// base02  | DarkGreen   | 02
+// base03  | DarkYellow  | 06
+// base04  | DarkBlue    | 01
+// base05  | DarkCyan    | 03
+// base06  | Gray        | 07
+// base07  | White       | 15
+// base08  | Red         | 12
+// base09  | DarkRed     | 04
+// base0A  | Yellow      | 14
+// base0B  | Green       | 10
+// base0C  | Cyan        | 11
+// base0D  | Blue        | 09
+// base0E  | DarkMagenta | 05
+// base0F  | Magenta     | 13

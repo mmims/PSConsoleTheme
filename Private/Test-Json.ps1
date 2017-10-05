@@ -3,7 +3,7 @@ function Test-Json {
         [string] $data
     )
     try {
-        ConvertFrom-Json $data -ErrorAction Stop
+        Remove-JsonComments $data | ConvertFrom-Json -ErrorAction Stop
         $valid = $true
     }
     catch {

@@ -29,9 +29,11 @@ function Set-ConsoleTheme {
                 Write-Debug "Name = '$Name'"
 
                 if ($Name) {
+                    $Script:PSConsoleTheme.User.Theme = $Name
                     $theme = $PSConsoleTheme.Themes[$Name]
                     Set-ColorPalette $theme
                     Set-TokenColorConfiguration $theme.tokens
+                    Export-UserConfiguration
                 }
             }
         }
