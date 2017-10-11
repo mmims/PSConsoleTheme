@@ -1,7 +1,10 @@
 function Set-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
-    Param ()
+    Param (
+        [Parameter(Mandatory=$false)]
+        [switch] $Restart
+    )
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = "Name"
@@ -34,6 +37,11 @@ function Set-ConsoleTheme {
                     Set-ColorPalette $theme
                     Set-TokenColorConfiguration $theme.tokens
                     Export-UserConfiguration
+
+                    if ($Restart) {
+                        Start-Process ((Get-Process -Id $PID).Path)
+                        Exit
+                    }
                 }
             }
         }
