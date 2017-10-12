@@ -1,7 +1,7 @@
 function Get-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     Param (
-        [Parameter(Mandatory=$false)]
+        [Parameter(Mandatory=$false,ParameterSetName='All')]
         [switch] $All,
 
         [Parameter(Mandatory=$false,ParameterSetName='Refresh')]
@@ -29,6 +29,9 @@ function Get-ConsoleTheme {
     }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
+            'All' {
+                $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name
+            }
             'Refresh' {
                 $PSConsoleTheme.Themes = Get-Theme
             }
@@ -38,8 +41,6 @@ function Get-ConsoleTheme {
 
                 if ($Name) {
                     $PSConsoleTheme.Themes[$Name]
-                } elseif ($All) {
-                    $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name
                 } else {
                     $currentTheme = $PSConsoleTheme.User.Theme
                     if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {

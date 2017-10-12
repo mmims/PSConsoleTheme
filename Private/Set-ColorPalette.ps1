@@ -1,8 +1,22 @@
 function Set-ColorPalette {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     param(
-        [System.Object] $Theme
+        [System.Object] $Theme,
+
+        [Parameter(Mandatory=$false)]
+        [switch] $Reset
     )
+
+    $key = 'HKCU:\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe'
+    if ($Reset.IsPresent) {
+        Remove-ItemProperty -Path $key -Name ColorTable* -Force -ErrorAction SilentlyContinue
+        Remove-ItemProperty -Path $key -Name ScreenColors -Force -ErrorAction SilentlyContinue
+        Remove-ItemProperty -Path $key -Name PopupColors -Force -ErrorAction SilentlyContinue
+        return
+    }
+
+    $palette = $Theme.palette
+    $format = 'RGB'
     $colorTable = @{
         'Black'       = 'ColorTable00'
         'DarkBlue'    = 'ColorTable01'
@@ -21,9 +35,7 @@ function Set-ColorPalette {
         'Yellow'      = 'ColorTable14'
         'White'       = 'ColorTable15'
     }
-    $key = 'HKCU:\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe'
-    $palette = $Theme.palette
-    $format = 'RGB'
+
     if (Get-Member paletteFormat -InputObject $Theme -MemberType NoteProperty) {
         $format = $Theme.paletteFormat
     }

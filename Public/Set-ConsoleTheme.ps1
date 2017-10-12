@@ -2,15 +2,18 @@ function Set-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param (
+        [Parameter(Mandatory=$false,ParameterSetName='Clear')]
+        [switch] $Clear,
+
         [Parameter(Mandatory=$false)]
         [switch] $Restart
     )
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
-            $parameterName = "Name"
+            $parameterName = 'Name'
 
             $attributes = New-Object System.Management.Automation.ParameterAttribute
-            $attributes.Mandatory = $true
+            $attributes.Mandatory = $false
             $attributes.ParameterSetName = 'ByName'
             $attributes.Position = 0
 
@@ -27,7 +30,13 @@ function Set-ConsoleTheme {
     }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
-            Default {
+            'Clear' {
+                if ($Clear.IsPresent) {
+                    Set-ColorPalette -Reset
+                    Set-TokenColorConfiguration -Reset
+                    Export-UserConfiguration -Reset
+                }
+            } Default {
                 $Name = $PSBoundParameters['Name']
                 Write-Debug "Name = '$Name'"
 
@@ -40,16 +49,16 @@ function Set-ConsoleTheme {
                             Set-TokenColorConfiguration $theme.tokens
                             Export-UserConfiguration
                         }
-
-                        if ($Restart) {
-                            Start-Process ((Get-Process -Id $PID).Path)
-                            Exit
-                        }
                     } catch {
                         Write-Error (("Invalid theme configuration for '{0}'." -f $theme.Name) + "`n" + $_)
                     }
                 }
             }
+        }
+
+        if ($Restart.IsPresent) {
+            Start-Process ((Get-Process -Id $PID).Path)
+            Exit
         }
     }
 }
