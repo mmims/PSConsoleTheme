@@ -34,13 +34,19 @@ function Set-ConsoleTheme {
                 if ($Name) {
                     $Script:PSConsoleTheme.User.Theme = $Name
                     $theme = $PSConsoleTheme.Themes[$Name]
-                    Set-ColorPalette $theme
-                    Set-TokenColorConfiguration $theme.tokens
-                    Export-UserConfiguration
+                    try {
+                        if(($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
+                            Set-ColorPalette $theme
+                            Set-TokenColorConfiguration $theme.tokens
+                            Export-UserConfiguration
+                        }
 
-                    if ($Restart) {
-                        Start-Process ((Get-Process -Id $PID).Path)
-                        Exit
+                        if ($Restart) {
+                            Start-Process ((Get-Process -Id $PID).Path)
+                            Exit
+                        }
+                    } catch {
+                        Write-Error (("Invalid theme configuration for '{0}'." -f $theme.Name) + "`n" + $_)
                     }
                 }
             }
