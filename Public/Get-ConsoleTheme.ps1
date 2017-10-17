@@ -18,7 +18,7 @@ function Get-ConsoleTheme {
 
             $attributeColl = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
             $attributeColl.Add($attributes)
-            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSConsoleTheme.Themes.Keys)))
+            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSConsoleTheme.Themes.Keys | Sort-Object)))
 
             $dynParam = New-Object System.Management.Automation.RuntimeDefinedParameter($ParameterName, [string], $attributeColl)
             $paramDict = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary

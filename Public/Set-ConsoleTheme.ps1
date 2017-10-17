@@ -2,10 +2,10 @@ function Set-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Clear')]
+        [Parameter(Mandatory=$false,ParameterSetName='Clear',HelpMessage='Clears the current theme colors and reverts o the default system colors.')]
         [switch] $Clear,
 
-        [Parameter(Mandatory=$false)]
+        [Parameter(Mandatory=$false,HelpMessage='Restarts the console immediately after changing the color theme.')]
         [switch] $Restart
     )
     DynamicParam {
@@ -16,10 +16,11 @@ function Set-ConsoleTheme {
             $attributes.Mandatory = $false
             $attributes.ParameterSetName = 'ByName'
             $attributes.Position = 0
+            $attributes.HelpMessage = 'Specifies the name of the theme to set the console colors.'
 
             $attributeColl = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
             $attributeColl.Add($attributes)
-            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSConsoleTheme.Themes.Keys)))
+            $attributeColl.Add((New-Object System.Management.Automation.ValidateSetAttribute($PSConsoleTheme.Themes.Keys | Sort-Object)))
 
             $dynParam = New-Object System.Management.Automation.RuntimeDefinedParameter($ParameterName, [string], $attributeColl)
             $paramDict = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
@@ -33,7 +34,7 @@ function Set-ConsoleTheme {
             'Clear' {
                 if ($Clear.IsPresent) {
                     Set-ColorPalette -Reset
-                    Set-TokenColorConfiguration -Reset
+                    # Set-TokenColorConfiguration -Reset
                     Export-UserConfiguration -Reset
                 }
             } Default {
