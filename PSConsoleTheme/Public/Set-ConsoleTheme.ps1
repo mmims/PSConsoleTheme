@@ -58,7 +58,7 @@ function Set-ConsoleTheme {
         }
 
         if ($Restart.IsPresent) {
-            Start-Process ((Get-Process -Id $PID).Path)
+            Start-Process ((Get-Process -Id $PID).Path) -ArgumentList -NoLogo
             Exit
         }
     }

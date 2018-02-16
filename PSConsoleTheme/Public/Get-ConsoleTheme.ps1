@@ -30,7 +30,8 @@ function Get-ConsoleTheme {
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'All' {
-                $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name
+                $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name | `
+                    Format-Table Name, @{Label="Description"; Expression={$_.Value.description}}
             }
             'Refresh' {
                 $PSConsoleTheme.Themes = Get-Theme

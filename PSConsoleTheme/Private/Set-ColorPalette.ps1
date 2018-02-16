@@ -7,7 +7,8 @@ function Set-ColorPalette {
         [switch] $Reset
     )
 
-    $key = 'HKCU:\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe'
+    # $key = 'HKCU:\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe'
+    $key = 'HKCU:\Console'
     if ($Reset.IsPresent) {
         Remove-ItemProperty -Path $key -Name ColorTable* -Force -ErrorAction SilentlyContinue
         Remove-ItemProperty -Path $key -Name ScreenColors -Force -ErrorAction SilentlyContinue
@@ -47,14 +48,18 @@ function Set-ColorPalette {
     # Set color table
     foreach ($color in ([System.ConsoleColor]).GetEnumNames()) {
         if ($colorTable.ContainsKey($color) -and (Get-Member $color -InputObject $palette -MemberType NoteProperty)) {
-            $bgrValue = Get-BGRValue $palette.($color) $format
+            $r, $g, $b = Get-RGBValues $palette.($color) $format
+            $bgrValue = [System.Convert]::ToInt32('0x'+ $b + $g + $r, 16)
             Set-ItemProperty -Path $key -Name $colorTable[$color] -Value $bgrValue -Force
+            [PSConsoleTheme.ColorChanger]::MapColor($color, '0x' + $r, '0x' + $g, '0x' + $b)
         }
     }
 
     # Set background/foreground
     $bgfgValue = Get-BFValue $Theme.background $Theme.foreground
     Set-ItemProperty -Path $key -Name 'ScreenColors' -Value $bgfgValue -Force
+    $Host.UI.RawUI.ForegroundColor = $Theme.foreground
+    $Host.UI.RawUI.BackgroundColor = $Theme.background
     if ((Get-Member popupBackground -InputObject $Theme -MemberType NoteProperty) -and (Get-Member popupForeground -InputObject $Theme -MemberType NoteProperty)) {
         $bgfgValue = Get-BFValue $Theme.popupBackground $Theme.popupForeground
         Set-ItemProperty -Path $key -Name 'PopupColors' -Value $bgfgValue -Force
