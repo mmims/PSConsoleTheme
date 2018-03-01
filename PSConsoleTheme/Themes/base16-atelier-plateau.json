@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Plateau",
+  "description": "Atelier Plateau scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#1b1818",
+    "DarkGray":    "#292424",
+    "DarkGreen":   "#585050",
+    "DarkYellow":  "#655d5d",
+    "DarkBlue":    "#7e7777",
+    "DarkCyan":    "#8a8585",
+    "Gray":        "#e7dfdf",
+    "White":       "#f4ecec",
+    "Red":         "#ca4949",
+    "DarkRed":     "#b45a3c",
+    "Yellow":      "#a06e3b",
+    "Green":       "#4b8b8b",
+    "Cyan":        "#5485b6",
+    "Blue":        "#7272ca",
+    "Magenta":     "#8464c4",
+    "DarkMagenta": "#bd5187"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "XCode Dusk",
+  "description": "XCode Dusk scheme by Elsa Gonsiorowski (https://github.com/gonsie).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#282b35",
+    "DarkGray":    "#3d4048",
+    "DarkGreen":   "#53555d",
+    "DarkYellow":  "#686a71",
+    "DarkBlue":    "#7e8086",
+    "DarkCyan":    "#939599",
+    "Gray":        "#a9aaae",
+    "White":       "#bebfc2",
+    "Red":         "#b21889",
+    "DarkRed":     "#786dc5",
+    "Yellow":      "#438288",
+    "Green":       "#df0002",
+    "Cyan":        "#00a0be",
+    "Blue":        "#790ead",
+    "Magenta":     "#b21889",
+    "DarkMagenta": "#c77c48"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Marrakesh",
+  "description": "Marrakesh scheme by Alexandre Gavioli (http://github.com/Alexx2/).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#201602",
+    "DarkGray":    "#302e00",
+    "DarkGreen":   "#5f5b17",
+    "DarkYellow":  "#6c6823",
+    "DarkBlue":    "#86813b",
+    "DarkCyan":    "#948e48",
+    "Gray":        "#ccc37a",
+    "White":       "#faf0a5",
+    "Red":         "#c35359",
+    "DarkRed":     "#b36144",
+    "Yellow":      "#a88339",
+    "Green":       "#18974e",
+    "Cyan":        "#75a738",
+    "Blue":        "#477ca1",
+    "Magenta":     "#8868b3",
+    "DarkMagenta": "#b3588e"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

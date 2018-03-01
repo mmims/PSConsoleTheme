@@ -1,0 +1,39 @@
+{
+  "name": "Classic Light",
+  "description": "Classic Light scheme by Jason Heeris (http://heeris.id.au).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#f5f5f5",
+    "DarkGray":    "#e0e0e0",
+    "DarkGreen":   "#d0d0d0",
+    "DarkYellow":  "#b0b0b0",
+    "DarkBlue":    "#505050",
+    "DarkCyan":    "#303030",
+    "Gray":        "#202020",
+    "White":       "#151515",
+    "Red":         "#ac4142",
+    "DarkRed":     "#d28445",
+    "Yellow":      "#f4bf75",
+    "Green":       "#90a959",
+    "Cyan":        "#75b5aa",
+    "Blue":        "#6a9fb5",
+    "Magenta":     "#aa759f",
+    "DarkMagenta": "#8f5536"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Darktooth",
+  "description": "Darktooth scheme by Jason Milkins (https://github.com/jasonm23).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#1d2021",
+    "DarkGray":    "#32302f",
+    "DarkGreen":   "#504945",
+    "DarkYellow":  "#665c54",
+    "DarkBlue":    "#928374",
+    "DarkCyan":    "#a89984",
+    "Gray":        "#d5c4a1",
+    "White":       "#fdf4c1",
+    "Red":         "#fb543f",
+    "DarkRed":     "#fe8625",
+    "Yellow":      "#fac03b",
+    "Green":       "#95c085",
+    "Cyan":        "#8ba59b",
+    "Blue":        "#0d6678",
+    "Magenta":     "#8f4673",
+    "DarkMagenta": "#a87322"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

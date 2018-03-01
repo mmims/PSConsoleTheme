@@ -1,0 +1,39 @@
+{
+  "name": "PhD",
+  "description": "PhD scheme by Hennig Hasemann (http://leetless.de/vim.html).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#061229",
+    "DarkGray":    "#2a3448",
+    "DarkGreen":   "#4d5666",
+    "DarkYellow":  "#717885",
+    "DarkBlue":    "#9a99a3",
+    "DarkCyan":    "#b8bbc2",
+    "Gray":        "#dbdde0",
+    "White":       "#ffffff",
+    "Red":         "#d07346",
+    "DarkRed":     "#f0a000",
+    "Yellow":      "#fbd461",
+    "Green":       "#99bf52",
+    "Cyan":        "#72b9bf",
+    "Blue":        "#5299bf",
+    "Magenta":     "#9989cc",
+    "DarkMagenta": "#b08060"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Seaside Light",
+  "description": "Atelier Seaside Light scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#f4fbf4",
+    "DarkGray":    "#cfe8cf",
+    "DarkGreen":   "#8ca68c",
+    "DarkYellow":  "#809980",
+    "DarkBlue":    "#687d68",
+    "DarkCyan":    "#5e6e5e",
+    "Gray":        "#242924",
+    "White":       "#131513",
+    "Red":         "#e6193c",
+    "DarkRed":     "#87711d",
+    "Yellow":      "#98981b",
+    "Green":       "#29a329",
+    "Cyan":        "#1999b3",
+    "Blue":        "#3d62f5",
+    "Magenta":     "#ad2bee",
+    "DarkMagenta": "#e619c3"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

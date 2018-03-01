@@ -1,0 +1,39 @@
+{
+  "name": "Rebecca",
+  "description": "Rebecca scheme by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#292a44",
+    "DarkGray":    "#663399",
+    "DarkGreen":   "#383a62",
+    "DarkYellow":  "#666699",
+    "DarkBlue":    "#a0a0c5",
+    "DarkCyan":    "#f1eff8",
+    "Gray":        "#ccccff",
+    "White":       "#53495d",
+    "Red":         "#a0a0c5",
+    "DarkRed":     "#efe4a1",
+    "Yellow":      "#ae81ff",
+    "Green":       "#6dfedf",
+    "Cyan":        "#8eaee0",
+    "Blue":        "#2de0a7",
+    "Magenta":     "#7aa5ff",
+    "DarkMagenta": "#ff79c6"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

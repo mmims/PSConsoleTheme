@@ -1,0 +1,39 @@
+{
+  "name": "Unikitty Light",
+  "description": "Unikitty Light scheme by Josh W Lewis (@joshwlewis).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#ffffff",
+    "DarkGray":    "#e1e1e2",
+    "DarkGreen":   "#c4c3c5",
+    "DarkYellow":  "#a7a5a8",
+    "DarkBlue":    "#89878b",
+    "DarkCyan":    "#6c696e",
+    "Gray":        "#4f4b51",
+    "White":       "#322d34",
+    "Red":         "#d8137f",
+    "DarkRed":     "#d65407",
+    "Yellow":      "#dc8a0e",
+    "Green":       "#17ad98",
+    "Cyan":        "#149bda",
+    "Blue":        "#775dff",
+    "Magenta":     "#aa17e6",
+    "DarkMagenta": "#e013d0"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

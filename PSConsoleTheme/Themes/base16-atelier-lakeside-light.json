@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Lakeside Light",
+  "description": "Atelier Lakeside Light scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#ebf8ff",
+    "DarkGray":    "#c1e4f6",
+    "DarkGreen":   "#7ea2b4",
+    "DarkYellow":  "#7195a8",
+    "DarkBlue":    "#5a7b8c",
+    "DarkCyan":    "#516d7b",
+    "Gray":        "#1f292e",
+    "White":       "#161b1d",
+    "Red":         "#d22d72",
+    "DarkRed":     "#935c25",
+    "Yellow":      "#8a8a0f",
+    "Green":       "#568c3b",
+    "Cyan":        "#2d8f6f",
+    "Blue":        "#257fad",
+    "Magenta":     "#6b6bb8",
+    "DarkMagenta": "#b72dd2"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

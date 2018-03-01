@@ -1,0 +1,39 @@
+{
+  "name": "Seti UI",
+  "description": "Seti UI scheme by .",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#151718",
+    "DarkGray":    "#282a2b",
+    "DarkGreen":   "#3b758c",
+    "DarkYellow":  "#41535b",
+    "DarkBlue":    "#43a5d5",
+    "DarkCyan":    "#d6d6d6",
+    "Gray":        "#eeeeee",
+    "White":       "#ffffff",
+    "Red":         "#cd3f45",
+    "DarkRed":     "#db7b55",
+    "Yellow":      "#e6cd69",
+    "Green":       "#9fca56",
+    "Cyan":        "#55dbbe",
+    "Blue":        "#55b5db",
+    "Magenta":     "#a074c4",
+    "DarkMagenta": "#8a553f"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Ashes",
+  "description": "Ashes scheme by Jannik Siebert (https://github.com/janniks).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#1c2023",
+    "DarkGray":    "#393f45",
+    "DarkGreen":   "#565e65",
+    "DarkYellow":  "#747c84",
+    "DarkBlue":    "#adb3ba",
+    "DarkCyan":    "#c7ccd1",
+    "Gray":        "#dfe2e5",
+    "White":       "#f3f4f5",
+    "Red":         "#c7ae95",
+    "DarkRed":     "#c7c795",
+    "Yellow":      "#aec795",
+    "Green":       "#95c7ae",
+    "Cyan":        "#95aec7",
+    "Blue":        "#ae95c7",
+    "Magenta":     "#c795ae",
+    "DarkMagenta": "#c79595"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

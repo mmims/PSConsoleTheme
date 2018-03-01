@@ -1,0 +1,39 @@
+{
+  "name": "Railscasts",
+  "description": "Railscasts scheme by Ryan Bates (http://railscasts.com).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#2b2b2b",
+    "DarkGray":    "#272935",
+    "DarkGreen":   "#3a4055",
+    "DarkYellow":  "#5a647e",
+    "DarkBlue":    "#d4cfc9",
+    "DarkCyan":    "#e6e1dc",
+    "Gray":        "#f4f1ed",
+    "White":       "#f9f7f3",
+    "Red":         "#da4939",
+    "DarkRed":     "#cc7833",
+    "Yellow":      "#ffc66d",
+    "Green":       "#a5c261",
+    "Cyan":        "#519f50",
+    "Blue":        "#6d9cbe",
+    "Magenta":     "#b6b3eb",
+    "DarkMagenta": "#bc9458"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

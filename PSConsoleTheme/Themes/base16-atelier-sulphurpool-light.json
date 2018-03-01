@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Sulphurpool Light",
+  "description": "Atelier Sulphurpool Light scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#f5f7ff",
+    "DarkGray":    "#dfe2f1",
+    "DarkGreen":   "#979db4",
+    "DarkYellow":  "#898ea4",
+    "DarkBlue":    "#6b7394",
+    "DarkCyan":    "#5e6687",
+    "Gray":        "#293256",
+    "White":       "#202746",
+    "Red":         "#c94922",
+    "DarkRed":     "#c76b29",
+    "Yellow":      "#c08b30",
+    "Green":       "#ac9739",
+    "Cyan":        "#22a2c9",
+    "Blue":        "#3d8fd1",
+    "Magenta":     "#6679cc",
+    "DarkMagenta": "#9c637a"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

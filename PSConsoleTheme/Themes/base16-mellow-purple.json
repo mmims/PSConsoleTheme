@@ -1,0 +1,39 @@
+{
+  "name": "Mellow Purple",
+  "description": "Mellow Purple scheme by gidsi.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#1e0528",
+    "DarkGray":    "#1a092d",
+    "DarkGreen":   "#331354",
+    "DarkYellow":  "#320f55",
+    "DarkBlue":    "#873582",
+    "DarkCyan":    "#ffeeff",
+    "Gray":        "#ffeeff",
+    "White":       "#f8c0ff",
+    "Red":         "#00d9e9",
+    "DarkRed":     "#aa00a3",
+    "Yellow":      "#955ae7",
+    "Green":       "#05cb0d",
+    "Cyan":        "#b900b1",
+    "Blue":        "#550068",
+    "Magenta":     "#8991bb",
+    "DarkMagenta": "#4d6fff"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

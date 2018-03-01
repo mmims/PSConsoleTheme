@@ -20,7 +20,7 @@ $manifest = Test-ModuleManifest (Join-Path $PSScriptRoot 'PSConsoleTheme.psd1') 
 # Create PSConsoleTheme object
 $Script:PSConsoleTheme = @{}
 $PSConsoleTheme.Version = $manifest.Version
-$PSConsoleTheme.Themes = Get-Theme "$PSScriptRoot\base16-themes-json"
+$PSConsoleTheme.Themes = Get-Theme
 
 # Import user configuration
 $PSConsoleTheme.User = Import-UserConfiguration

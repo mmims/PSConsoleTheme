@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Cave",
+  "description": "Atelier Cave scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#19171c",
+    "DarkGray":    "#26232a",
+    "DarkGreen":   "#585260",
+    "DarkYellow":  "#655f6d",
+    "DarkBlue":    "#7e7887",
+    "DarkCyan":    "#8b8792",
+    "Gray":        "#e2dfe7",
+    "White":       "#efecf4",
+    "Red":         "#be4678",
+    "DarkRed":     "#aa573c",
+    "Yellow":      "#a06e3b",
+    "Green":       "#2a9292",
+    "Cyan":        "#398bc6",
+    "Blue":        "#576ddb",
+    "Magenta":     "#955ae7",
+    "DarkMagenta": "#bf40bf"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

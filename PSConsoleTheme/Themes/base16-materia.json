@@ -1,0 +1,39 @@
+{
+  "name": "Materia",
+  "description": "Materia scheme by Defman21.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#263238",
+    "DarkGray":    "#2c393f",
+    "DarkGreen":   "#37474f",
+    "DarkYellow":  "#707880",
+    "DarkBlue":    "#c9ccd3",
+    "DarkCyan":    "#cdd3de",
+    "Gray":        "#d5dbe5",
+    "White":       "#ffffff",
+    "Red":         "#ec5f67",
+    "DarkRed":     "#ea9560",
+    "Yellow":      "#ffcc00",
+    "Green":       "#8bd649",
+    "Cyan":        "#80cbc4",
+    "Blue":        "#89ddff",
+    "Magenta":     "#82aaff",
+    "DarkMagenta": "#ec5f67"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

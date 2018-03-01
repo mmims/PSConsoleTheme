@@ -1,0 +1,39 @@
+{
+  "name": "Brush Trees",
+  "description": "Brush Trees scheme by Abraham White &lt;abelincoln.white@gmail.com&gt;.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#e3efef",
+    "DarkGray":    "#c9dbdc",
+    "DarkGreen":   "#b0c5c8",
+    "DarkYellow":  "#98afb5",
+    "DarkBlue":    "#8299a1",
+    "DarkCyan":    "#6d828e",
+    "Gray":        "#5a6d7a",
+    "White":       "#485867",
+    "Red":         "#b38686",
+    "DarkRed":     "#d8bba2",
+    "Yellow":      "#aab386",
+    "Green":       "#87b386",
+    "Cyan":        "#86b3b3",
+    "Blue":        "#868cb3",
+    "Magenta":     "#b386b2",
+    "DarkMagenta": "#b39f9f"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

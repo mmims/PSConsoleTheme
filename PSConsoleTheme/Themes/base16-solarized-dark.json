@@ -1,0 +1,39 @@
+{
+  "name": "Solarized Dark",
+  "description": "Solarized Dark scheme by Ethan Schoonover (http://ethanschoonover.com/solarized).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#002b36",
+    "DarkGray":    "#073642",
+    "DarkGreen":   "#586e75",
+    "DarkYellow":  "#657b83",
+    "DarkBlue":    "#839496",
+    "DarkCyan":    "#93a1a1",
+    "Gray":        "#eee8d5",
+    "White":       "#fdf6e3",
+    "Red":         "#dc322f",
+    "DarkRed":     "#cb4b16",
+    "Yellow":      "#b58900",
+    "Green":       "#859900",
+    "Cyan":        "#2aa198",
+    "Blue":        "#268bd2",
+    "Magenta":     "#6c71c4",
+    "DarkMagenta": "#d33682"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

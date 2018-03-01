@@ -1,0 +1,39 @@
+{
+  "name": "Nord",
+  "description": "Nord scheme by arcticicestudio.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#2e3440",
+    "DarkGray":    "#3b4252",
+    "DarkGreen":   "#434c5e",
+    "DarkYellow":  "#4c566a",
+    "DarkBlue":    "#d8dee9",
+    "DarkCyan":    "#e5e9f0",
+    "Gray":        "#eceff4",
+    "White":       "#8fbcbb",
+    "Red":         "#88c0d0",
+    "DarkRed":     "#81a1c1",
+    "Yellow":      "#5e81ac",
+    "Green":       "#bf616a",
+    "Cyan":        "#d08770",
+    "Blue":        "#ebcb8b",
+    "Magenta":     "#a3be8c",
+    "DarkMagenta": "#b48ead"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

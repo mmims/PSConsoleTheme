@@ -1,0 +1,39 @@
+{
+  "name": "3024",
+  "description": "3024 scheme by Jan T. Sott (http://github.com/idleberg).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#090300",
+    "DarkGray":    "#3a3432",
+    "DarkGreen":   "#4a4543",
+    "DarkYellow":  "#5c5855",
+    "DarkBlue":    "#807d7c",
+    "DarkCyan":    "#a5a2a2",
+    "Gray":        "#d6d5d4",
+    "White":       "#f7f7f7",
+    "Red":         "#db2d20",
+    "DarkRed":     "#e8bbd0",
+    "Yellow":      "#fded02",
+    "Green":       "#01a252",
+    "Cyan":        "#b5e4f4",
+    "Blue":        "#01a0e4",
+    "Magenta":     "#a16a94",
+    "DarkMagenta": "#cdab53"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

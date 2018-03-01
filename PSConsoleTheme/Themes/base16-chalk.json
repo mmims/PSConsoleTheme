@@ -1,0 +1,39 @@
+{
+  "name": "Chalk",
+  "description": "Chalk scheme by Chris Kempson (http://chriskempson.com).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#151515",
+    "DarkGray":    "#202020",
+    "DarkGreen":   "#303030",
+    "DarkYellow":  "#505050",
+    "DarkBlue":    "#b0b0b0",
+    "DarkCyan":    "#d0d0d0",
+    "Gray":        "#e0e0e0",
+    "White":       "#f5f5f5",
+    "Red":         "#fb9fb1",
+    "DarkRed":     "#eda987",
+    "Yellow":      "#ddb26f",
+    "Green":       "#acc267",
+    "Cyan":        "#12cfc0",
+    "Blue":        "#6fc2ef",
+    "Magenta":     "#e1a3ee",
+    "DarkMagenta": "#deaf8f"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Material Lighter",
+  "description": "Material Lighter scheme by Nate Peterson.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#fafafa",
+    "DarkGray":    "#e7eaec",
+    "DarkGreen":   "#cceae7",
+    "DarkYellow":  "#ccd7da",
+    "DarkBlue":    "#8796b0",
+    "DarkCyan":    "#80cbc4",
+    "Gray":        "#80cbc4",
+    "White":       "#ffffff",
+    "Red":         "#ff5370",
+    "DarkRed":     "#f76d47",
+    "Yellow":      "#ffb62c",
+    "Green":       "#91b859",
+    "Cyan":        "#39adb5",
+    "Blue":        "#6182b8",
+    "Magenta":     "#7c4dff",
+    "DarkMagenta": "#e53935"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

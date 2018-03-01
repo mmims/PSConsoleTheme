@@ -1,0 +1,39 @@
+{
+  "name": "Bespin",
+  "description": "Bespin scheme by Jan T. Sott.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#28211c",
+    "DarkGray":    "#36312e",
+    "DarkGreen":   "#5e5d5c",
+    "DarkYellow":  "#666666",
+    "DarkBlue":    "#797977",
+    "DarkCyan":    "#8a8986",
+    "Gray":        "#9d9b97",
+    "White":       "#baae9e",
+    "Red":         "#cf6a4c",
+    "DarkRed":     "#cf7d34",
+    "Yellow":      "#f9ee98",
+    "Green":       "#54be0d",
+    "Cyan":        "#afc4db",
+    "Blue":        "#5ea6ea",
+    "Magenta":     "#9b859d",
+    "DarkMagenta": "#937121"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

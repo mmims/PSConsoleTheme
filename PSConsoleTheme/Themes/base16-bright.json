@@ -1,0 +1,39 @@
+{
+  "name": "Bright",
+  "description": "Bright scheme by Chris Kempson (http://chriskempson.com).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#000000",
+    "DarkGray":    "#303030",
+    "DarkGreen":   "#505050",
+    "DarkYellow":  "#b0b0b0",
+    "DarkBlue":    "#d0d0d0",
+    "DarkCyan":    "#e0e0e0",
+    "Gray":        "#f5f5f5",
+    "White":       "#ffffff",
+    "Red":         "#fb0120",
+    "DarkRed":     "#fc6d24",
+    "Yellow":      "#fda331",
+    "Green":       "#a1c659",
+    "Cyan":        "#76c7b7",
+    "Blue":        "#6fb3d2",
+    "Magenta":     "#d381c3",
+    "DarkMagenta": "#be643c"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

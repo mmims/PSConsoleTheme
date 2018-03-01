@@ -1,0 +1,39 @@
+{
+  "name": "Gruvbox light, hard",
+  "description": "Gruvbox light, hard scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#f9f5d7",
+    "DarkGray":    "#ebdbb2",
+    "DarkGreen":   "#d5c4a1",
+    "DarkYellow":  "#bdae93",
+    "DarkBlue":    "#665c54",
+    "DarkCyan":    "#504945",
+    "Gray":        "#3c3836",
+    "White":       "#282828",
+    "Red":         "#9d0006",
+    "DarkRed":     "#af3a03",
+    "Yellow":      "#b57614",
+    "Green":       "#79740e",
+    "Cyan":        "#427b58",
+    "Blue":        "#076678",
+    "Magenta":     "#8f3f71",
+    "DarkMagenta": "#d65d0e"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

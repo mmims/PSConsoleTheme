@@ -1,0 +1,39 @@
+{
+  "name": "Apathy",
+  "description": "Apathy scheme by Jannik Siebert (https://github.com/janniks).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#031a16",
+    "DarkGray":    "#0b342d",
+    "DarkGreen":   "#184e45",
+    "DarkYellow":  "#2b685e",
+    "DarkBlue":    "#5f9c92",
+    "DarkCyan":    "#81b5ac",
+    "Gray":        "#a7cec8",
+    "White":       "#d2e7e4",
+    "Red":         "#3e9688",
+    "DarkRed":     "#3e7996",
+    "Yellow":      "#3e4c96",
+    "Green":       "#883e96",
+    "Cyan":        "#963e4c",
+    "Blue":        "#96883e",
+    "Magenta":     "#4c963e",
+    "DarkMagenta": "#3e965b"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

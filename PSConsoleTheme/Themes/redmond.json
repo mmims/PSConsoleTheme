@@ -1,0 +1,39 @@
+{
+  "name": "Redmond",
+  "description": "Redmond scheme by Michael Mims (https://github.com/mmims).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#0c0c0c",
+    "DarkGray":    "#767676",
+    "DarkGreen":   "#13a10e",
+    "DarkYellow":  "#c19c00",
+    "DarkBlue":    "#0037da",
+    "DarkCyan":    "#3a96dd",
+    "Gray":        "#cccccc",
+    "White":       "#f2f2f2",
+    "Red":         "#e74856",
+    "DarkRed":     "#c50f1f",
+    "Yellow":      "#f9f1a5",
+    "Green":       "#16c60c",
+    "Cyan":        "#61d6d6",
+    "Blue":        "#3b78ff",
+    "Magenta":     "#b4009e",
+    "DarkMagenta": "#881798"
+  },
+  "tokens": {
+    "Command":   "Yellow",
+    "Comment":   "DarkGreen",
+    "Keyword":   "Green",
+    "Member":    "White",
+    "Number":    "White",
+    "Operator":  "DarkGray",
+    "Parameter": "DarkGray",
+    "String":    "DarkCyan",
+    "Type":      "Gray",
+    "Variable":  "Green"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Embers",
+  "description": "Embers scheme by Jannik Siebert (https://github.com/janniks).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#16130f",
+    "DarkGray":    "#2c2620",
+    "DarkGreen":   "#433b32",
+    "DarkYellow":  "#5a5047",
+    "DarkBlue":    "#8a8075",
+    "DarkCyan":    "#a39a90",
+    "Gray":        "#beb6ae",
+    "White":       "#dbd6d1",
+    "Red":         "#826d57",
+    "DarkRed":     "#828257",
+    "Yellow":      "#6d8257",
+    "Green":       "#57826d",
+    "Cyan":        "#576d82",
+    "Blue":        "#6d5782",
+    "Magenta":     "#82576d",
+    "DarkMagenta": "#825757"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

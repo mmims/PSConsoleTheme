@@ -1,0 +1,39 @@
+{
+  "name": "Twilight",
+  "description": "Twilight scheme by David Hart (https://github.com/hartbit).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#1e1e1e",
+    "DarkGray":    "#323537",
+    "DarkGreen":   "#464b50",
+    "DarkYellow":  "#5f5a60",
+    "DarkBlue":    "#838184",
+    "DarkCyan":    "#a7a7a7",
+    "Gray":        "#c3c3c3",
+    "White":       "#ffffff",
+    "Red":         "#cf6a4c",
+    "DarkRed":     "#cda869",
+    "Yellow":      "#f9ee98",
+    "Green":       "#8f9d6a",
+    "Cyan":        "#afc4db",
+    "Blue":        "#7587a6",
+    "Magenta":     "#9b859d",
+    "DarkMagenta": "#9b703f"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

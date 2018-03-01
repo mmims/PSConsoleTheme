@@ -1,0 +1,39 @@
+{
+  "name": "Harmonic16 Dark",
+  "description": "Harmonic16 Dark scheme by Jannik Siebert (https://github.com/janniks).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#0b1c2c",
+    "DarkGray":    "#223b54",
+    "DarkGreen":   "#405c79",
+    "DarkYellow":  "#627e99",
+    "DarkBlue":    "#aabcce",
+    "DarkCyan":    "#cbd6e2",
+    "Gray":        "#e5ebf1",
+    "White":       "#f7f9fb",
+    "Red":         "#bf8b56",
+    "DarkRed":     "#bfbf56",
+    "Yellow":      "#8bbf56",
+    "Green":       "#56bf8b",
+    "Cyan":        "#568bbf",
+    "Blue":        "#8b56bf",
+    "Magenta":     "#bf568b",
+    "DarkMagenta": "#bf5656"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

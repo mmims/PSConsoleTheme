@@ -1,0 +1,39 @@
+{
+  "name": "Cupertino",
+  "description": "Cupertino scheme by Defman21.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#ffffff",
+    "DarkGray":    "#c0c0c0",
+    "DarkGreen":   "#c0c0c0",
+    "DarkYellow":  "#808080",
+    "DarkBlue":    "#808080",
+    "DarkCyan":    "#404040",
+    "Gray":        "#404040",
+    "White":       "#5e5e5e",
+    "Red":         "#c41a15",
+    "DarkRed":     "#eb8500",
+    "Yellow":      "#826b28",
+    "Green":       "#007400",
+    "Cyan":        "#318495",
+    "Blue":        "#0000ff",
+    "Magenta":     "#a90d91",
+    "DarkMagenta": "#826b28"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

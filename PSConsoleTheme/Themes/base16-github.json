@@ -1,0 +1,39 @@
+{
+  "name": "Github",
+  "description": "Github scheme by Defman21.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#ffffff",
+    "DarkGray":    "#f5f5f5",
+    "DarkGreen":   "#c8c8fa",
+    "DarkYellow":  "#969896",
+    "DarkBlue":    "#e8e8e8",
+    "DarkCyan":    "#333333",
+    "Gray":        "#ffffff",
+    "White":       "#ffffff",
+    "Red":         "#ed6a43",
+    "DarkRed":     "#0086b3",
+    "Yellow":      "#795da3",
+    "Green":       "#183691",
+    "Cyan":        "#183691",
+    "Blue":        "#795da3",
+    "Magenta":     "#a71d5d",
+    "DarkMagenta": "#333333"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

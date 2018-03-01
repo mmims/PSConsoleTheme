@@ -1,0 +1,39 @@
+{
+  "name": "Icy Dark",
+  "description": "Icy Dark scheme by icyphox (https://icyphox.ga).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#021012",
+    "DarkGray":    "#031619",
+    "DarkGreen":   "#041f23",
+    "DarkYellow":  "#052e34",
+    "DarkBlue":    "#064048",
+    "DarkCyan":    "#095b67",
+    "Gray":        "#0c7c8c",
+    "White":       "#109cb0",
+    "Red":         "#16c1d9",
+    "DarkRed":     "#b3ebf2",
+    "Yellow":      "#80deea",
+    "Green":       "#4dd0e1",
+    "Cyan":        "#26c6da",
+    "Blue":        "#00bcd4",
+    "Magenta":     "#00acc1",
+    "DarkMagenta": "#0097a7"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

@@ -21,7 +21,7 @@ GUID = '19899b1a-02bf-4305-8794-7e5ba1f9dfc1'
 Author = 'Michael Mims'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+CompanyName = ''
 
 # Copyright statement for this module
 Copyright = '(c) 2018 Michael Mims. All rights reserved.'
@@ -117,4 +117,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-

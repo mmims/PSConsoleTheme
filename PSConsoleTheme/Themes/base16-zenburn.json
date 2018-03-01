@@ -1,0 +1,39 @@
+{
+  "name": "Zenburn",
+  "description": "Zenburn scheme by elnawe.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#3f3f3f",
+    "DarkGray":    "#404040",
+    "DarkGreen":   "#606060",
+    "DarkYellow":  "#4f4f4f",
+    "DarkBlue":    "#808080",
+    "DarkCyan":    "#dcdccc",
+    "Gray":        "#c0c0c0",
+    "White":       "#ffffff",
+    "Red":         "#dca3a3",
+    "DarkRed":     "#dfaf8f",
+    "Yellow":      "#e0cf9f",
+    "Green":       "#5f7f5f",
+    "Cyan":        "#93e0e3",
+    "Blue":        "#7cb8bb",
+    "Magenta":     "#dc8cc3",
+    "DarkMagenta": "#000000"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

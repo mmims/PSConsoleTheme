@@ -1,0 +1,39 @@
+{
+  "name": "Eighties",
+  "description": "Eighties scheme by Chris Kempson (http://chriskempson.com).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#2d2d2d",
+    "DarkGray":    "#393939",
+    "DarkGreen":   "#515151",
+    "DarkYellow":  "#747369",
+    "DarkBlue":    "#a09f93",
+    "DarkCyan":    "#d3d0c8",
+    "Gray":        "#e8e6df",
+    "White":       "#f2f0ec",
+    "Red":         "#f2777a",
+    "DarkRed":     "#f99157",
+    "Yellow":      "#ffcc66",
+    "Green":       "#99cc99",
+    "Cyan":        "#66cccc",
+    "Blue":        "#6699cc",
+    "Magenta":     "#cc99cc",
+    "DarkMagenta": "#d27b53"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

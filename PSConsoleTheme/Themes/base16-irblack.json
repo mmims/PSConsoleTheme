@@ -1,0 +1,39 @@
+{
+  "name": "IR Black",
+  "description": "IR Black scheme by Timothée Poisot (http://timotheepoisot.fr).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#000000",
+    "DarkGray":    "#242422",
+    "DarkGreen":   "#484844",
+    "DarkYellow":  "#6c6c66",
+    "DarkBlue":    "#918f88",
+    "DarkCyan":    "#b5b3aa",
+    "Gray":        "#d9d7cc",
+    "White":       "#fdfbee",
+    "Red":         "#ff6c60",
+    "DarkRed":     "#e9c062",
+    "Yellow":      "#ffffb6",
+    "Green":       "#a8ff60",
+    "Cyan":        "#c6c5fe",
+    "Blue":        "#96cbfe",
+    "Magenta":     "#ff73fd",
+    "DarkMagenta": "#b18a3d"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

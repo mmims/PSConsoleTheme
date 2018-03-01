@@ -1,0 +1,39 @@
+{
+  "name": "Mexico Light",
+  "description": "Mexico Light scheme by Sheldon Johnson.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#f8f8f8",
+    "DarkGray":    "#e8e8e8",
+    "DarkGreen":   "#d8d8d8",
+    "DarkYellow":  "#b8b8b8",
+    "DarkBlue":    "#585858",
+    "DarkCyan":    "#383838",
+    "Gray":        "#282828",
+    "White":       "#181818",
+    "Red":         "#ab4642",
+    "DarkRed":     "#dc9656",
+    "Yellow":      "#f79a0e",
+    "Green":       "#538947",
+    "Cyan":        "#4b8093",
+    "Blue":        "#7cafc2",
+    "Magenta":     "#96609e",
+    "DarkMagenta": "#a16946"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

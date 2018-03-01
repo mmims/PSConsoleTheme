@@ -1,0 +1,39 @@
+{
+  "name": "Green Screen",
+  "description": "Green Screen scheme by Chris Kempson (http://chriskempson.com).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#001100",
+    "DarkGray":    "#003300",
+    "DarkGreen":   "#005500",
+    "DarkYellow":  "#007700",
+    "DarkBlue":    "#009900",
+    "DarkCyan":    "#00bb00",
+    "Gray":        "#00dd00",
+    "White":       "#00ff00",
+    "Red":         "#007700",
+    "DarkRed":     "#009900",
+    "Yellow":      "#007700",
+    "Green":       "#00bb00",
+    "Cyan":        "#005500",
+    "Blue":        "#009900",
+    "Magenta":     "#00bb00",
+    "DarkMagenta": "#005500"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

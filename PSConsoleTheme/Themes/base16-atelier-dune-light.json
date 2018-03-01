@@ -1,0 +1,39 @@
+{
+  "name": "Atelier Dune Light",
+  "description": "Atelier Dune Light scheme by Bram de Haan (http://atelierbramdehaan.nl).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#fefbec",
+    "DarkGray":    "#e8e4cf",
+    "DarkGreen":   "#a6a28c",
+    "DarkYellow":  "#999580",
+    "DarkBlue":    "#7d7a68",
+    "DarkCyan":    "#6e6b5e",
+    "Gray":        "#292824",
+    "White":       "#20201d",
+    "Red":         "#d73737",
+    "DarkRed":     "#b65611",
+    "Yellow":      "#ae9513",
+    "Green":       "#60ac39",
+    "Cyan":        "#1fad83",
+    "Blue":        "#6684e1",
+    "Magenta":     "#b854d4",
+    "DarkMagenta": "#d43552"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

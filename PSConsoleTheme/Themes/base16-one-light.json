@@ -1,0 +1,39 @@
+{
+  "name": "One Light",
+  "description": "One Light scheme by Daniel Pfeifer (http://github.com/purpleKarrot).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#fafafa",
+    "DarkGray":    "#f0f0f1",
+    "DarkGreen":   "#e5e5e6",
+    "DarkYellow":  "#a0a1a7",
+    "DarkBlue":    "#696c77",
+    "DarkCyan":    "#383a42",
+    "Gray":        "#202227",
+    "White":       "#090a0b",
+    "Red":         "#ca1243",
+    "DarkRed":     "#d75f00",
+    "Yellow":      "#c18401",
+    "Green":       "#50a14f",
+    "Cyan":        "#0184bc",
+    "Blue":        "#4078f2",
+    "Magenta":     "#a626a4",
+    "DarkMagenta": "#986801"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

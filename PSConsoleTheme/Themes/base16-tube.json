@@ -1,0 +1,39 @@
+{
+  "name": "London Tube",
+  "description": "London Tube scheme by Jan T. Sott.",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#231f20",
+    "DarkGray":    "#1c3f95",
+    "DarkGreen":   "#5a5758",
+    "DarkYellow":  "#737171",
+    "DarkBlue":    "#959ca1",
+    "DarkCyan":    "#d9d8d8",
+    "Gray":        "#e7e7e8",
+    "White":       "#ffffff",
+    "Red":         "#ee2e24",
+    "DarkRed":     "#f386a1",
+    "Yellow":      "#ffd204",
+    "Green":       "#00853e",
+    "Cyan":        "#85cebc",
+    "Blue":        "#009ddc",
+    "Magenta":     "#98005d",
+    "DarkMagenta": "#b06110"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}

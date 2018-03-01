@@ -1,0 +1,39 @@
+{
+  "name": "Dracula",
+  "description": "Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula).",
+  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "background": "Black",
+  "foreground": "DarkCyan",
+  "popupBackground": "DarkGreen",
+  "popupForeground": "Gray",
+  "palette": {
+    "Black":       "#282936",
+    "DarkGray":    "#3a3c4e",
+    "DarkGreen":   "#4d4f68",
+    "DarkYellow":  "#626483",
+    "DarkBlue":    "#62d6e8",
+    "DarkCyan":    "#e9e9f4",
+    "Gray":        "#f1f2f8",
+    "White":       "#f7f7fb",
+    "Red":         "#ea51b2",
+    "DarkRed":     "#b45bcf",
+    "Yellow":      "#00f769",
+    "Green":       "#ebff87",
+    "Cyan":        "#a1efe4",
+    "Blue":        "#62d6e8",
+    "Magenta":     "#b45bcf",
+    "DarkMagenta": "#00f769"
+  },
+  "tokens": {
+    "Command":   "Blue",
+    "Comment":   "DarkYellow",
+    "Keyword":   "Magenta",
+    "Member":    "Blue",
+    "Number":    "DarkRed",
+    "Operator":  "Cyan",
+    "Parameter": "DarkRed",
+    "String":    "Green",
+    "Type":      "Yellow",
+    "Variable":  "Red"
+  }
+}
