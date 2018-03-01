@@ -29,8 +29,7 @@ $layoutModuleParams = @{
             PSConsoleTheme/*.ps*,
             PSConsoleTheme/Private/*.ps1,
             PSConsoleTheme/Public/*.ps1,
-            PSConsoleTheme/Themes/*.json,
-            PSConsoleTheme/base16-themes-json/*.json
+            PSConsoleTheme/Themes/*.json
     }
     Outputs = {
         process {
@@ -57,7 +56,7 @@ task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, {
 
             $manifestContent = [regex]::Replace($manifestContent, "ModuleVersion = '.*'", "ModuleVersion = '$version'")
             Write-Host "Updating version information in manifest: $manifestFile"
-            $manifestContent | Set-Content -Path $manifestFile -Encoding UTF8
+            $manifestContent | Set-Content -Path $manifestFile -Encoding UTF8 -NoNewline
         }
 
         Write-Host "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $2"
