@@ -2,7 +2,7 @@ param (
     [string]$Configuration = (property Configuration Release)
 )
 
-use 14.0 MSBuild
+use * MSBuild
 
 $targetDir = "module/$Configuration/PSConsoleTheme"
 
@@ -16,14 +16,20 @@ task BuildBinaryModule @binaryModuleParams {
     exec { MSBuild 'PSConsoleTheme/Lib/PSConsoleTheme.csproj' /t:Rebuild /p:Configuration=$Configuration /p:Platform=AnyCPU }
 }
 
+# Synopsis: Remove all build related artifacts
+task Clean {
+    Get-ChildItem PSConsoleTheme/Lib -Include bin, obj -Recurse | Remove-Item -Recurse -Force -ErrorAction Ignore
+    Remove-Item module -Recurse -Force -ErrorAction Ignore
+}
+
 $layoutModuleParams = @{
     Inputs = {
         Get-ChildItem `
+            PSConsoleTheme/Lib/bin/$Configuration/PSConsoleTheme.dll,
             PSConsoleTheme/*.ps*,
             PSConsoleTheme/Private/*.ps1,
             PSConsoleTheme/Public/*.ps1,
             PSConsoleTheme/Themes/*.json,
-            PSConsoleTheme/Lib/bin/$Configuration/PSConsoleTheme.dll,
             PSConsoleTheme/base16-themes-json/*.json
     }
     Outputs = {
@@ -44,9 +50,24 @@ task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, {
             New-Item (Split-Path $2) -ItemType Directory -Force | Out-Null
         }
 
+        if ((Split-Path $_ -Leaf) -ieq 'psconsoletheme.dll') {
+            $manifestFile = 'PSConsoleTheme/PSConsoleTheme.psd1'
+            $version = (Get-ChildItem $_).VersionInfo.FileVersion
+            $manifestContent = Get-Content -Path $manifestFile -Raw
+
+            $manifestContent = [regex]::Replace($manifestContent, "ModuleVersion = '.*'", "ModuleVersion = '$version'")
+            Write-Host "Updating version information in manifest: $manifestFile"
+            $manifestContent | Set-Content -Path $manifestFile -Encoding UTF8
+        }
+
         Write-Host "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $2"
         Copy-Item $_ $2 -Force
     }
+}
+
+# Synopsis: Create an archive of the module for release
+task ZipRelease LayoutModule, {
+    Compress-Archive $targetDir -DestinationPath ((Split-Path $targetDir) + '/PSConsoleTheme.zip') -Force
 }
 
 task . LayoutModule
