@@ -26,4 +26,8 @@ $PSConsoleTheme.Themes = Get-Theme
 $PSConsoleTheme.User = Import-UserConfiguration
 
 # Export module functions
-Export-ModuleMember -Function $Public.BaseName #-Variable 'PSConsoleTheme'
+Export-ModuleMember -Function $Public.BaseName
+if (($session = $Global:PSConsoleThemeDebugSessionPath) -ne $null -and $PSScriptRoot -eq $session) {
+    Write-Warning "Module loaded in debugging mode from $session"
+    Export-ModuleMember -Variable 'PSConsoleTheme'
+}
