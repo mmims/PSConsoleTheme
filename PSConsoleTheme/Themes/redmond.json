@@ -3,9 +3,9 @@
   "description": "Redmond scheme by Michael Mims (https://github.com/mmims).",
   "repository": "https://github.com/mmims/base16-psconsoletheme",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
-  "popupForeground": "Gray",
+  "foreground": "Gray",
+  "popupBackground": "White",
+  "popupForeground": "DarkMagenta",
   "palette": {
     "Black":       "#0c0c0c",
     "DarkGray":    "#767676",
