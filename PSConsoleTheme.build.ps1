@@ -1,5 +1,7 @@
 param (
-    [string]$Configuration = (property 'Configuration' 'Release')
+    [ValidateSet('Release','Debug')]
+    [string]$Configuration = (property 'Configuration' 'Release'),
+    [string]$NuGetApiKey = (property 'NuGetApiKey' '')
 )
 
 use * MSBuild
@@ -12,14 +14,12 @@ function New-DebugTarget ([int]$length = 8) {
     $newDir
 }
 
-$targetDir = "module/$Configuration/PSConsoleTheme"
+$targetDir = Join-Path $BuildRoot "module/$Configuration/PSConsoleTheme"
 if ($Configuration -eq 'Debug') {
     if ($Global:PSConsoleThemeDebugSessionPath -and (Test-Path $Global:PSConsoleThemeDebugSessionPath)) {
         $targetDir = $Global:PSConsoleThemeDebugSessionPath
-        $Script:libraryChanged = $false
     } else {
         $Global:PSConsoleThemeDebugSessionPath = $targetDir = New-DebugTarget
-        $Script:libraryChanged = $true
     }
 }
 
@@ -31,6 +31,23 @@ $binaryModuleParams = @{
 # Synopsis: Build the binary library used by the module
 task BuildBinaryModule @binaryModuleParams {
     exec { MSBuild 'PSConsoleTheme/Lib/PSConsoleTheme.csproj' /t:Rebuild /p:Configuration=$Configuration /p:Platform=AnyCPU }
+
+    $manifestFile = 'PSConsoleTheme/PSConsoleTheme.psd1'
+    $version = (Get-ChildItem "PSConsoleTheme/Lib/bin/$Configuration/PSConsoleTheme.dll").VersionInfo.FileVersion
+    $manifestContent = Get-Content -Path $manifestFile -Raw
+
+    $manifestContent = [regex]::Replace($manifestContent, "ModuleVersion = '.*'", "ModuleVersion = '$version'")
+    Write-Host "Updating version information in manifest: $manifestFile"
+    $manifestContent | Set-Content -Path $manifestFile -Encoding UTF8 -NoNewline
+}
+
+$mamlHelpParams = @{
+    Inputs = (Get-ChildItem docs/*.md -Exclude about_*.md)
+    Outputs = (Join-Path $targetDir 'en-US/PSConsoleTheme-help.xml')
+}
+
+task BuildMamlHelp @mamlHelpParams {
+    PlatyPS\New-ExternalHelp -Path docs -OutputPath $targetDir\en-US\PSConsoleTheme-help.xml -Force
 }
 
 # Synopsis: Remove all build related artifacts
@@ -39,11 +56,11 @@ task Clean {
     Remove-Item module -Recurse -Force -ErrorAction Ignore
 }
 
-task Install {
+task Install LayoutModule, {
     switch ($Configuration) {
         Debug {
             Remove-Module PSConsoleTheme -Force -ErrorAction Ignore
-            Import-Module (Join-Path $Global:PSConsoleThemeDebugSessionPath 'PSConsoleTheme.psd1') -Force
+            Import-Module (Join-Path ${Global:PSConsoleThemeDebugSessionPath} 'PSConsoleTheme.psd1') -Force
         }
         Release {
             $paths = $env:PSModulePath -split ';' | Where-Object { $_ -like "${env:USERPROFILE}*" }
@@ -77,7 +94,7 @@ $layoutModuleParams = @{
     }
     Outputs = {
         process {
-            if ((Split-Path $_ -Leaf) -ieq 'psconsoletheme.dll') {
+            if ((Split-Path $_ -Leaf) -eq 'psconsoletheme.dll') {
                 Join-Path $targetDir (Split-Path $_ -Leaf)
             } else {
                 Join-Path $targetDir ($_ -replace [regex]::Escape($BuildRoot + '\PSConsoleTheme\'), '')
@@ -87,31 +104,41 @@ $layoutModuleParams = @{
 }
 
 # Synopsis: Copy all of the files that belong in the module to one place for installation
-task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, {
+task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, BuildMamlHelp, {
     process {
         if (-Not (Test-Path (Split-Path $2) -PathType Container)) {
             New-Item (Split-Path $2) -ItemType Directory -Force | Out-Null
         }
 
         if ((Split-Path $_ -Leaf) -eq 'psconsoletheme.dll') {
-            if ($Configuration -eq 'Debug' -and ($Script:libraryChanged = !$Script:libraryChanged)) { continue }
-            $manifestFile = 'PSConsoleTheme/PSConsoleTheme.psd1'
-            $version = (Get-ChildItem $_).VersionInfo.FileVersion
-            $manifestContent = Get-Content -Path $manifestFile -Raw
-
-            $manifestContent = [regex]::Replace($manifestContent, "ModuleVersion = '.*'", "ModuleVersion = '$version'")
-            Write-Host "Updating version information in manifest: $manifestFile"
-            $manifestContent | Set-Content -Path $manifestFile -Encoding UTF8 -NoNewline
+            Write-Verbose "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $($2 -replace [regex]::Escape($BuildRoot + '\'), '')"
+            try {
+                Copy-Item $_ $2 -Force -ErrorAction Stop   
+            }
+            catch {
+                if ($Configuration -eq 'Debug') {
+                    $Global:PSConsoleThemeDebugSessionPath = New-DebugTarget
+                    throw "Build changes require a new target directory. Please rerun `Invoke-Build`."
+                }
+            }
+        } else {
+            Write-Verbose "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $($2 -replace [regex]::Escape($BuildRoot + '\'), '')"
+            Copy-Item $_ $2 -Force
         }
-
-        Write-Verbose "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $($2 -replace [regex]::Escape($BuildRoot + '\'), '')"
-        Copy-Item $_ $2 -Force
     }
-}, AfterLayoutModule
+}
 
-task AfterLayoutModule -If {$Configuration -eq 'Debug' -and $Script:libraryChanged} {
-    $Global:PSConsoleThemeDebugSessionPath = New-DebugTarget
-    throw "Build changes require a new target directory. Please rerun `Invoke-Build`."
+task Publish -If ($Configuration -eq 'Release') {
+    $publishParams = @{
+        Path = $targetDir
+        NuGetApiKey = $NuGetApiKey
+        Repository = 'PSGallery'
+        ProjectUri = 'https://github.com/mmims/PSConsoleTheme'
+        LicenseUri = 'https://github.com/mmims/PSConsoleTheme/blob/master/LICENSE'
+        Tags = @('Windows', 'Color', 'Console')
+    }
+
+    Publish-Module @publishParams
 }
 
 # Synopsis: Create an archive of the module for release

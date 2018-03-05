@@ -1,8 +1,9 @@
+#.ExternalHelp PSConsoleTheme-help.xml
 function Get-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     Param (
-        [Parameter(Mandatory=$false,ParameterSetName='All')]
-        [switch] $All,
+        [Parameter(Mandatory=$false,ParameterSetName='Available')]
+        [switch] $ListAvailable,
 
         [Parameter(Mandatory=$false,ParameterSetName='Refresh')]
         [switch]$Refresh
@@ -29,7 +30,7 @@ function Get-ConsoleTheme {
     }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
-            'All' {
+            'Available' {
                 $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name | `
                     Format-Table Name, @{Label="Description"; Expression={$_.Value.description}}
             }
