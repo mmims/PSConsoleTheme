@@ -8,22 +8,22 @@ schema: 2.0.0
 # Set-ConsoleTheme
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Sets the current console theme.
 
 ## SYNTAX
 
 ### ByName (Default)
 ```
-Set-ConsoleTheme [-Restart] [[-Name] <String>] [<CommonParameters>]
+Set-ConsoleTheme [[-Name] <String>] [<CommonParameters>]
 ```
 
 ### Clear
 ```
-Set-ConsoleTheme [-Clear] [-Restart] [<CommonParameters>]
+Set-ConsoleTheme [-Clear] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+The Set-ConsoleTheme cmdlet sets the console colors to a predefined theme in the PSConsoleTheme repository. If a theme contains the optional tokens attribute, the PSReadline token colors are also set. To reset the console colors and PSReadline token colors to the system defaults, specify the Clear parameter.
 
 ## EXAMPLES
 
@@ -37,7 +37,7 @@ PS C:\> {{ Add example code here }}
 ## PARAMETERS
 
 ### -Clear
-Clears the current theme colors and reverts o the default system colors.
+Indicates that this cmdlet set all console colors and PSReadline tokens to the system defaults.
 
 ```yaml
 Type: SwitchParameter
@@ -52,7 +52,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies the name of the theme to set the console colors.
+Specifies the name of the console theme to set.
 
 ```yaml
 Type: String
@@ -67,34 +67,19 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Restart
-Restarts the console immediately after changing the color theme.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
 
-
 ## OUTPUTS
 
-### System.Object
+### None
 
 ## NOTES
 
 ## RELATED LINKS
+
+[Get-ConsoleTheme]()

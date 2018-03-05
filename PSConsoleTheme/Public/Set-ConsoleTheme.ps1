@@ -2,11 +2,8 @@ function Set-ConsoleTheme {
     [CmdletBinding(DefaultParameterSetName='ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Clear',HelpMessage='Clears the current theme colors and reverts o the default system colors.')]
-        [switch] $Clear,
-
-        [Parameter(Mandatory=$false,HelpMessage='Restarts the console immediately after changing the color theme.')]
-        [switch] $Restart
+        [Parameter(Mandatory=$false,ParameterSetName='Clear')]
+        [switch] $Clear
     )
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
@@ -34,12 +31,11 @@ function Set-ConsoleTheme {
             'Clear' {
                 if ($Clear.IsPresent) {
                     Set-ColorPalette -Reset
-                    # Set-TokenColorConfiguration -Reset
+                    Set-TokenColorConfiguration -Reset
                     Export-UserConfiguration -Reset
                 }
             } Default {
                 $Name = $PSBoundParameters['Name']
-                Write-Debug "Name = '$Name'"
 
                 if ($Name) {
                     $Script:PSConsoleTheme.User.Theme = $Name
@@ -55,11 +51,6 @@ function Set-ConsoleTheme {
                     }
                 }
             }
-        }
-
-        if ($Restart.IsPresent) {
-            Start-Process ((Get-Process -Id $PID).Path) -ArgumentList -NoLogo
-            Exit
         }
     }
 }

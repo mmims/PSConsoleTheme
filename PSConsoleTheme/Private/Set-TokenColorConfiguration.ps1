@@ -1,5 +1,5 @@
 function Set-TokenColorConfiguration {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
+    # [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     param(
         [Parameter(Mandatory=$false)]
         $TokenColors,
@@ -9,8 +9,10 @@ function Set-TokenColorConfiguration {
     )
 
     if(Get-Module PSReadLine) {
-        if ($Reset.IsPresent) {
+        if ($Reset.IsPresent -or !$TokenColors) {
             $TokenColors = @{
+                'ContinuationPrompt' = 'Gray'
+                'DefaultToken' = 'Gray'
                 'Comment' = 'DarkGreen'
                 'Keyword' = 'Green'
                 'String' = 'DarkCyan'
@@ -21,14 +23,12 @@ function Set-TokenColorConfiguration {
                 'Type' = 'Gray'
                 'Number' = 'White'
                 'Member' = 'White'
+                'Emphasis' = 'Cyan'
+                'Error' = 'Red'
             }
         }
 
-        if (!$TokenColors) {
-            return
-        }
-
-        foreach ($token in @('Comment','Keyword','String','Operator','Variable','Command','Parameter','Type','Number','Member')) {
+        foreach ($token in @('ContinuationPrompt','DefaultToken','Comment','Keyword','String','Operator','Variable','Command','Parameter','Type','Number','Member','Emphasis','Error')) {
             if (Get-Member $token -InputObject $TokenColors) {
                 Set-PSReadlineOption $token -ForegroundColor $TokenColors.($token)
             }
