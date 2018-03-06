@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-ConsoleTheme
 
 ## SYNOPSIS
-Sets the current console theme.
+Sets the console and PSReadline token colors.
 
 ## SYNTAX
 
@@ -17,39 +17,31 @@ Sets the current console theme.
 Set-ConsoleTheme [[-Name] <String>] [<CommonParameters>]
 ```
 
-### Clear
+### Reset
 ```
-Set-ConsoleTheme [-Clear] [<CommonParameters>]
+Set-ConsoleTheme [-Reset] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Set-ConsoleTheme cmdlet sets the console colors to a predefined theme in the PSConsoleTheme repository. If a theme contains the optional tokens attribute, the PSReadline token colors are also set. To reset the console colors and PSReadline token colors to the system defaults, specify the Clear parameter.
+The Set-ConsoleTheme cmdlet sets the console colors to a predefined theme in the PSConsoleTheme repository. If a theme contains the optional tokens attribute and the PSReadline module is installed, the PSReadline token colors are also set. To reset the console colors and PSReadline token colors to the system defaults, specify the Clear parameter.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-ConsoleTheme 'Solarized Dark'
 ```
 
-{{ Add example description here }}
+Set the console theme to _Solarized Dark_.
+
+### Example 2
+```powershell
+PS C:\> Set-ConsoleTheme -Reset
+```
+
+Set all console colors and PSReadline tokens to the system defaults.
 
 ## PARAMETERS
-
-### -Clear
-Indicates that this cmdlet set all console colors and PSReadline tokens to the system defaults.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Clear
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -Name
 Specifies the name of the console theme to set.
@@ -62,6 +54,21 @@ Accepted values: 3024, Apathy, Ashes, Atelier Cave, Atelier Cave Light, Atelier 
 
 Required: False
 Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Reset
+Indicates that this cmdlet set all console colors and PSReadline tokens to the system defaults.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Reset
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
