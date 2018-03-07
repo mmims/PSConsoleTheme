@@ -46,7 +46,7 @@ $mamlHelpParams = @{
     Outputs = (Join-Path $targetDir 'en-US/PSConsoleTheme-help.xml')
 }
 
-task BuildMamlHelp @mamlHelpParams {
+task BuildMamlHelp @mamlHelpParams -If ($Configuration -eq 'Release') {
     PlatyPS\New-ExternalHelp -Path docs -OutputPath $targetDir\en-US\PSConsoleTheme-help.xml -Force
 }
 
@@ -113,12 +113,12 @@ task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, BuildMamlHelp,
         if ((Split-Path $_ -Leaf) -eq 'psconsoletheme.dll') {
             Write-Verbose "Copying $($_ -replace [regex]::Escape($BuildRoot + '\'), '') -> $($2 -replace [regex]::Escape($BuildRoot + '\'), '')"
             try {
-                Copy-Item $_ $2 -Force -ErrorAction Stop   
+                Copy-Item $_ $2 -Force -ErrorAction Stop
             }
             catch {
                 if ($Configuration -eq 'Debug') {
                     $Global:PSConsoleThemeDebugSessionPath = New-DebugTarget
-                    throw "Build changes require a new target directory. Please rerun `Invoke-Build`."
+                    throw "Build changes require a new target directory. Please run Invoke-Build again."
                 }
             }
         } else {
@@ -129,6 +129,10 @@ task LayoutModule -Partial @layoutModuleParams BuildBinaryModule, BuildMamlHelp,
 }
 
 task Publish -If ($Configuration -eq 'Release') {
+    if ($NuGetApiKey -eq '') {
+        throw "Cannot publish. NuGet API key not set."
+    }
+
     $publishParams = @{
         Path = $targetDir
         NuGetApiKey = $NuGetApiKey
