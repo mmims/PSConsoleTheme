@@ -30,7 +30,7 @@ Copyright = '(c) 2018 Michael Mims. All rights reserved.'
 # Description = ''
 
 # Minimum version of the Windows PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '3.0'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -39,7 +39,7 @@ Copyright = '(c) 2018 Michael Mims. All rights reserved.'
 # PowerShellHostVersion = ''
 
 # Minimum version of Microsoft .NET Framework required by this module
-# DotNetFrameworkVersion = ''
+DotNetFrameworkVersion = '2.0'
 
 # Minimum version of the common language runtime (CLR) required by this module
 # CLRVersion = ''

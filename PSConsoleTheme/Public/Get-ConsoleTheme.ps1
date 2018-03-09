@@ -1,16 +1,16 @@
 #.ExternalHelp PSConsoleTheme-help.xml
 function Get-ConsoleTheme {
-    [CmdletBinding(DefaultParameterSetName='ByName')]
+    [CmdletBinding(DefaultParameterSetName = 'ByName')]
     Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Available')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Available')]
         [switch] $ListAvailable,
 
-        [Parameter(Mandatory=$false,ParameterSetName='Refresh')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Refresh')]
         [switch]$Refresh
     )
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
-            $parameterName = "Name"
+            $parameterName = 'Name'
 
             $attributes = New-Object System.Management.Automation.ParameterAttribute
             $attributes.Mandatory = $false
@@ -28,30 +28,42 @@ function Get-ConsoleTheme {
             $paramDict
         }
     }
+    Begin {
+        if ($PSConsoleTheme.Debug) {
+            $oldVerbose = $DebugPreference
+            $DebugPreference = 'Continue'
+        }
+    }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'Available' {
                 $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name | `
-                    Format-Table Name, @{Label="Description"; Expression={$_.Value.description}}
+                    Format-Table Name, @{Label = "Description"; Expression = {$_.Value.description}}
             }
             'Refresh' {
                 $PSConsoleTheme.Themes = Get-Theme
             }
             Default {
                 $Name = $PSBoundParameters['Name']
-                Write-Debug "Name = '$Name'"
 
                 if ($Name) {
                     $PSConsoleTheme.Themes[$Name]
-                } else {
+                }
+                else {
                     $currentTheme = $PSConsoleTheme.User.Theme
                     if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {
                         $PSConsoleTheme.Themes[$currentTheme]
-                    } else {
+                    }
+                    else {
                         'No console theme set.'
                     }
                 }
             }
+        }
+    }
+    End {
+        if ($PSConsoleTheme.Debug) {
+            $DebugPreference = $oldVerbose
         }
     }
 }

@@ -5,14 +5,11 @@ $Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction Silent
 # dot source files
 foreach ($import in @($Public + $Private)) {
     try {
-        # Write-Host "dot sourcing '$($import.Fullname)'..." -NoNewline
         . $import.FullName
     }
     catch {
-        # Write-Host "failed!"
         Write-Error -Message "Failed to import function $($import.FullName): $_"
     }
-    # Write-Host "success!"
 }
 
 $manifest = Test-ModuleManifest (Join-Path $PSScriptRoot 'PSConsoleTheme.psd1') -WarningAction SilentlyContinue
@@ -27,7 +24,10 @@ $PSConsoleTheme.User = Import-UserConfiguration
 
 # Export module functions
 Export-ModuleMember -Function $Public.BaseName
-if (($session = $Global:PSConsoleThemeDebugSessionPath) -ne $null -and $PSScriptRoot -eq $session) {
+
+# Debugging session exports
+if ($null -ne ($session = $Global:PSConsoleThemeDebugSessionPath) -and $PSScriptRoot -eq $session) {
     Write-Warning "Module loaded in debugging mode from $session"
+    $PSConsoleTheme.Debug = $true
     Export-ModuleMember -Variable 'PSConsoleTheme'
 }

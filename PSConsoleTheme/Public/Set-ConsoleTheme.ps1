@@ -1,8 +1,9 @@
+#.ExternalHelp PSConsoleTheme-help.xml
 function Set-ConsoleTheme {
-    [CmdletBinding(DefaultParameterSetName='ByName')]
+    [CmdletBinding(DefaultParameterSetName = 'ByName')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Reset')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Reset')]
         [switch] $Reset
     )
     DynamicParam {
@@ -26,6 +27,12 @@ function Set-ConsoleTheme {
             $paramDict
         }
     }
+    Begin {
+        if ($PSConsoleTheme.Debug) {
+            $oldVerbose = $DebugPreference
+            $DebugPreference = 'Continue'
+        }
+    }
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'Reset' {
@@ -41,16 +48,22 @@ function Set-ConsoleTheme {
                     $Script:PSConsoleTheme.User.Theme = $Name
                     $theme = $PSConsoleTheme.Themes[$Name]
                     try {
-                        if(($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
+                        if (($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
                             Set-ColorPalette $theme
                             Set-TokenColorConfiguration $theme.tokens
                             Export-UserConfiguration
                         }
-                    } catch {
+                    }
+                    catch {
                         Write-Error (("Invalid theme configuration for '{0}'." -f $theme.Name) + "`n" + $_)
                     }
                 }
             }
+        }
+    }
+    End {
+        if ($PSConsoleTheme.Debug) {
+            $DebugPreference = $oldVerbose
         }
     }
 }
