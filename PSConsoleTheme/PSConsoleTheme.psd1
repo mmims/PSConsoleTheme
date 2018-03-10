@@ -63,7 +63,7 @@ DotNetFrameworkVersion = '2.0'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @('PSConsoleTheme.dll')
+# NestedModules = @('PSConsoleTheme.dll')
 
 # Functions to export from this module
 FunctionsToExport = '*'
