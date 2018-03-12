@@ -94,9 +94,6 @@ task Publish -If ($Configuration -eq 'Release') {
         Path = $targetDir
         NuGetApiKey = $NuGetApiKey
         Repository = 'PSGallery'
-        ProjectUri = 'https://github.com/mmims/PSConsoleTheme'
-        LicenseUri = 'https://github.com/mmims/PSConsoleTheme/blob/master/LICENSE'
-        Tags = @('Windows', 'Color', 'Console')
     }
 
     Publish-Module @publishParams
