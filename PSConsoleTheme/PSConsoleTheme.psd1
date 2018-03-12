@@ -27,7 +27,7 @@ CompanyName = ''
 Copyright = '(c) 2018 Michael Mims. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'PowerShell module to manage Windows console color themes and PSReadline token colors.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '3.0'
@@ -72,7 +72,7 @@ FunctionsToExport = '*'
 CmdletsToExport = '*'
 
 # Variables to export from this module
-VariablesToExport = 'PSConsoleTheme'
+VariablesToExport = '*'
 
 # Aliases to export from this module
 AliasesToExport = '*'
