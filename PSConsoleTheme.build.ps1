@@ -1,12 +1,18 @@
 param (
     [ValidateSet('Release','Debug')]
     [string]$Configuration = (property 'Configuration' 'Release'),
-    [string]$NuGetApiKey = (property 'NuGetApiKey' '')
+    [string]$NuGetApiKey = (property 'NuGetApiKey' ''),
+    [string]$Version
 )
 
 $targetDir = Join-Path $BuildRoot "module/$Configuration/PSConsoleTheme"
 if ($Configuration -eq 'Debug') {
     $Global:PSConsoleThemeDebugSessionPath = $targetDir
+}
+
+function Get-Version {
+    $manifest = Import-PowerShellDataFile 'PSConsoleTheme/PSConsoleTheme.psd1'
+    [System.Version]::Parse($manifest.ModuleVersion)
 }
 
 $mamlHelpParams = @{
@@ -16,7 +22,7 @@ $mamlHelpParams = @{
 
 # Synopsis: Build external help file from markdown documentation
 task BuildMamlHelp @mamlHelpParams -If ($Configuration -eq 'Release') {
-    PlatyPS\New-ExternalHelp -Path docs -OutputPath $targetDir\en-US\PSConsoleTheme-help.xml -Force
+    PlatyPS\New-ExternalHelp -Path docs -OutputPath $targetDir\en-US\PSConsoleTheme-help.xml -Force | Out-Null
 }
 
 # Synopsis: Remove all build related artifacts
@@ -94,6 +100,39 @@ task Publish -If ($Configuration -eq 'Release') {
     }
 
     Publish-Module @publishParams
+}
+
+# Synopsis: Update the module version in the manifest file
+task UpdateVersion {
+    if ($Version -eq '') {
+        throw 'No version specified'
+    }
+
+    $current = Get-Version
+    switch ($Version) {
+        Major {
+            $update = "$($current.Major + 1).0.0"
+        }
+        Minor {
+            $update = "$($current.Major).$($current.Minor + 1).0"
+        }
+        Build {
+            $update = "$($current.Major).$($current.Minor).$($current.Build + 1)"
+        }
+        Default {
+            if ([System.Version]::TryParse($Version, [ref]$null)) {
+                $update = $Version
+            } else {
+                throw "Invalid version specified: $Version"
+            }
+        }
+    }
+
+    Write-Host "Updating version from [$current] to [$update]"
+    $file = Resolve-Path 'PSConsoleTheme/PSConsoleTheme.psd1'
+    $manifest = Get-Content $file -Raw
+    $manifest = [regex]::Replace($manifest, "ModuleVersion = '.*'", "ModuleVersion = '$update'")
+    $manifest | Set-Content $file -Encoding UTF8 -NoNewline
 }
 
 # Synopsis: Create an archive of the module for release
