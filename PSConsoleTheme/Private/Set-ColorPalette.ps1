@@ -8,11 +8,14 @@ function Set-ColorPalette {
     )
 
     $key = 'HKCU:\Console'
+    $saveReg = $true
+
     if ($Reset.IsPresent) {
         Remove-ItemProperty -Path $key -Name ColorTable* -Force -ErrorAction SilentlyContinue
         Remove-ItemProperty -Path $key -Name ScreenColors -Force -ErrorAction SilentlyContinue
         Remove-ItemProperty -Path $key -Name PopupColors -Force -ErrorAction SilentlyContinue
-        return
+        $Theme = $PSConsoleTheme.Themes['Redmond']
+        $saveReg = $false
     }
 
     $palette = $Theme.palette
@@ -49,19 +52,26 @@ function Set-ColorPalette {
         if ($colorTable.ContainsKey($color) -and (Get-Member $color -InputObject $palette -MemberType NoteProperty)) {
             $r, $g, $b = Get-RGBValues $palette.($color) $format
             $bgrValue = [System.Convert]::ToInt32('0x'+ $b + $g + $r, 16)
-            Set-ItemProperty -Path $key -Name $colorTable[$color] -Value $bgrValue -Force
             [PSConsoleTheme.ColorChanger]::MapColor($color, '0x' + $r, '0x' + $g, '0x' + $b)
+
+            if ($saveReg) {
+                Set-ItemProperty -Path $key -Name $colorTable[$color] -Value $bgrValue -Force
+            }
         }
     }
 
     # Set background/foreground
-    $bgfgValue = Get-BFValue $Theme.background $Theme.foreground
-    Set-ItemProperty -Path $key -Name 'ScreenColors' -Value $bgfgValue -Force
     $Host.UI.RawUI.ForegroundColor = $Theme.foreground
     $Host.UI.RawUI.BackgroundColor = $Theme.background
-    if ((Get-Member popupBackground -InputObject $Theme -MemberType NoteProperty) -and (Get-Member popupForeground -InputObject $Theme -MemberType NoteProperty)) {
-        $bgfgValue = Get-BFValue $Theme.popupBackground $Theme.popupForeground
-        Set-ItemProperty -Path $key -Name 'PopupColors' -Value $bgfgValue -Force
+
+    if ($saveReg) {
+        $bgfgValue = Get-BFValue $Theme.background $Theme.foreground
+        Set-ItemProperty -Path $key -Name 'ScreenColors' -Value $bgfgValue -Force
+
+        if ((Get-Member popupBackground -InputObject $Theme -MemberType NoteProperty) -and (Get-Member popupForeground -InputObject $Theme -MemberType NoteProperty)) {
+            $bgfgValue = Get-BFValue $Theme.popupBackground $Theme.popupForeground
+            Set-ItemProperty -Path $key -Name 'PopupColors' -Value $bgfgValue -Force
+        }
     }
 }
 
