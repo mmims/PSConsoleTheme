@@ -32,7 +32,7 @@ The Set-ConsoleTheme cmdlet sets the console colors to a predefined theme in the
 PS C:\> Set-ConsoleTheme 'Solarized Dark'
 ```
 
-Set the console theme to _Solarized Dark_.
+Set the console theme to Solarized Dark.
 
 ### Example 2
 ```powershell
