@@ -22,7 +22,10 @@ $mamlHelpParams = @{
 
 # Synopsis: Build external help file from markdown documentation
 task BuildMamlHelp @mamlHelpParams -If ($Configuration -eq 'Release') {
+    $oldProgress = $Global:ProgressPreference
+    $Global:ProgressPreference = 'SilentlyContinue'
     PlatyPS\New-ExternalHelp -Path docs -OutputPath $targetDir\en-US\PSConsoleTheme-help.xml -Force | Out-Null
+    $Global:ProgressPreference = $oldProgress
 }
 
 # Synopsis: Remove all build related artifacts
