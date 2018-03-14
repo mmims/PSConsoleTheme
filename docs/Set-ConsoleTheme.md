@@ -89,4 +89,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[Get-ConsoleTheme](Get-ConsoleTheme)
+[Get-ConsoleTheme](Get-ConsoleTheme.md)
