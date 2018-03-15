@@ -6,6 +6,7 @@ function Set-ConsoleTheme {
         [Parameter(Mandatory = $false, ParameterSetName = 'Reset')]
         [switch] $Reset
     )
+
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = 'Name'
@@ -27,12 +28,7 @@ function Set-ConsoleTheme {
             $paramDict
         }
     }
-    Begin {
-        if ($PSConsoleTheme.Debug) {
-            $oldVerbose = $DebugPreference
-            $DebugPreference = 'Continue'
-        }
-    }
+
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'Reset' {
@@ -59,11 +55,6 @@ function Set-ConsoleTheme {
                     }
                 }
             }
-        }
-    }
-    End {
-        if ($PSConsoleTheme.Debug) {
-            $DebugPreference = $oldVerbose
         }
     }
 }

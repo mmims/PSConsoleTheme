@@ -8,6 +8,7 @@ function Get-ConsoleTheme {
         [Parameter(Mandatory = $false, ParameterSetName = 'Refresh')]
         [switch]$Refresh
     )
+
     DynamicParam {
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = 'Name'
@@ -28,12 +29,7 @@ function Get-ConsoleTheme {
             $paramDict
         }
     }
-    Begin {
-        if ($PSConsoleTheme.Debug) {
-            $oldVerbose = $DebugPreference
-            $DebugPreference = 'Continue'
-        }
-    }
+
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'Available' {
@@ -59,11 +55,6 @@ function Get-ConsoleTheme {
                     }
                 }
             }
-        }
-    }
-    End {
-        if ($PSConsoleTheme.Debug) {
-            $DebugPreference = $oldVerbose
         }
     }
 }
