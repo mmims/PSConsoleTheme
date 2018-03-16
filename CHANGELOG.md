@@ -1,5 +1,17 @@
 # PSConsoleTheme Changes
 
+## Version 0.2.0
+
+Features
+
+* Support loading themes from multiple paths.
+* User settings and themes are now stored in the `.psconsoletheme` folder.
+
+Bug Fixes
+
+* Reset colors of active session when -Reset is called.
+* Fully support all token types.
+
 ## Version 0.1.2
 
 Bug Fixes
