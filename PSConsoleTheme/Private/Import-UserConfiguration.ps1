@@ -1,10 +1,10 @@
 function Import-UserConfiguration {
     param (
         [Parameter(Mandatory=$false)]
-        [string] $Path = $env:USERPROFILE
+        [string] $Path = $Script:PSConsoleTheme.ProfilePath
     )
 
-    $configFile = Join-Path $Path '.psconsoletheme'
+    $configFile = Join-Path $Path 'config.json'
     if (Test-Path $configFile) {
         $configJson = Get-Content $configFile -Raw
         if (!(Test-Json $configJson)) {

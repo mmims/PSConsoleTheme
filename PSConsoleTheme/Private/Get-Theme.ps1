@@ -1,24 +1,36 @@
 function Get-Theme {
     param(
-        [string] $themeDir = "$PSScriptRoot\..\themes"
+        [string[]] $ThemePath = $null
     )
-    Assert (Test-Path $themeDir -PathType Container) ($theme_msgs.error_invalid_path -f $themeDir)
-    $configFiles = Get-ChildItem $themeDir "*.json"
+
+    if ($ThemePath -eq $null) {
+        $ThemePath = @(
+            Resolve-Path "$HOME\.psconsoletheme\themes" -ErrorAction Ignore
+            Resolve-Path "$env:ALLUSERSPROFILE\.psconsoletheme\themes" -ErrorAction Ignore
+            Resolve-Path "$PSScriptRoot\..\themes"
+        )
+    }
 
     $themes = @{}
-    foreach ($config in $configFiles) {
-        try
-        {
-            $theme = Import-ThemeConfiguration $config.FullName -ErrorAction Stop
-            if ($theme) {
-                if ($themes.ContainsKey($theme.name)) {
-                    Write-Warning ($theme_msgs.warning_ambiguous_theme -f $theme.name, $config)
-                    break
+    foreach ($path in $ThemePath) {
+        $configFiles = Get-ChildItem $path "*.json"
+    
+        $processed = 0
+        foreach ($config in $configFiles) {
+            try
+            {
+                $theme = Import-ThemeConfiguration $config.FullName -ErrorAction Stop
+                if ($theme) {
+                    if ($themes.ContainsKey($theme.name)) {
+                        Write-Warning ($theme_msgs.warning_ambiguous_theme -f $theme.name, $config.FullName)
+                        break
+                    }
+                    $themes.Add($theme.name, $theme)
+                    $processed++
                 }
-                $themes.Add($theme.name, $theme)
+            } catch {
+                Write-Warning $_
             }
-        } catch {
-            Write-Warning $_
         }
     }
 
@@ -28,6 +40,6 @@ function Get-Theme {
 DATA theme_msgs {
     ConvertFrom-StringData @'
         error_invalid_path = Could not find path {0}.
-        warning_ambiguous_theme = Ambiguous theme name '{0}'. Ignoring theme configuration: {1}
+        warning_ambiguous_theme = Ambiguous theme name '{0}'. Ignoring {1}
 '@
 }
