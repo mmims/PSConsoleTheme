@@ -47,12 +47,13 @@ function Set-ConsoleTheme {
                         if (($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
                             Set-ColorPalette $theme
                             Set-TokenColorConfiguration $theme.tokens
-                            Export-UserConfiguration
                         }
                     }
                     catch {
                         Write-Error (("Invalid theme configuration for '{0}'." -f $theme.Name) + "`n" + $_)
+                        return
                     }
+                    Export-UserConfiguration
                 }
             }
         }
