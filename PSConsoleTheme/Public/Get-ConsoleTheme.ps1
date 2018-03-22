@@ -6,7 +6,10 @@ function Get-ConsoleTheme {
         [switch] $ListAvailable,
 
         [Parameter(Mandatory = $false, ParameterSetName = 'Refresh')]
-        [switch]$Refresh
+        [switch] $Refresh,
+
+        [Parameter(Mandatory = $false, ParameterSetName = 'ByName')]
+        [switch] $ShowColors
     )
 
     DynamicParam {
@@ -46,6 +49,11 @@ function Get-ConsoleTheme {
                     $PSConsoleTheme.Themes[$Name]
                 }
                 else {
+                    if ($ShowColors) {
+                        Out-Colors
+                        return
+                    }
+
                     $currentTheme = $PSConsoleTheme.User.Theme
                     if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {
                         $PSConsoleTheme.Themes[$currentTheme]

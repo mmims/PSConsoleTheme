@@ -38,7 +38,7 @@ task Install LayoutModule, {
     switch ($Configuration) {
         Debug {
             Remove-Module PSConsoleTheme -Force -ErrorAction Ignore
-            Import-Module (Join-Path $targetDir 'PSConsoleTheme.psd1') -Force
+            Import-Module (Join-Path $targetDir 'PSConsoleTheme.psm1') -Force
         }
         Release {
             $paths = $env:PSModulePath -split ';' | Where-Object { $_ -like "${env:USERPROFILE}*" }
@@ -137,7 +137,8 @@ task UpdateVersion {
 
 # Synopsis: Create an archive of the module for release
 task ZipRelease -If ($Configuration -eq 'Release') LayoutModule, {
-    Compress-Archive $targetDir -DestinationPath ((Split-Path $targetDir) + '/PSConsoleTheme.zip') -Force
+    $version = Get-Version
+    Compress-Archive $targetDir -DestinationPath ((Split-Path $targetDir) + "/PSConsoleTheme-$version.zip") -Force
 }
 
 task . LayoutModule

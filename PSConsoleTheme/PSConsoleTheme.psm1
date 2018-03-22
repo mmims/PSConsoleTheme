@@ -30,4 +30,5 @@ Export-ModuleMember -Function $Public.BaseName
 if ($null -ne ($session = $Global:PSConsoleThemeDebugSessionPath) -and $PSScriptRoot -eq $session) {
     Write-Warning "Module loaded in debugging mode from $session"
     Export-ModuleMember -Variable 'PSConsoleTheme'
+    Export-ModuleMember -Function Out-Colors
 }
