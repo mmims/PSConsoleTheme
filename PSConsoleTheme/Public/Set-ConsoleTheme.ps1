@@ -46,7 +46,7 @@ function Set-ConsoleTheme {
                     try {
                         if (($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
                             Set-ColorPalette $theme
-                            Set-TokenColorConfiguration $theme.tokens
+                            Set-TokenColorConfiguration $theme
                             Export-UserConfiguration
                         }
                     }

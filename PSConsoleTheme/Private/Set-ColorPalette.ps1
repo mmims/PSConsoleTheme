@@ -20,23 +20,87 @@ function Set-ColorPalette {
 
     $palette = $Theme.palette
     $format = 'RGB'
-    $colorTable = @{
-        'Black'       = 'ColorTable00'
-        'DarkBlue'    = 'ColorTable01'
-        'DarkGreen'   = 'ColorTable02'
-        'DarkCyan'    = 'ColorTable03'
-        'DarkRed'     = 'ColorTable04'
-        'DarkMagenta' = 'ColorTable05'
-        'DarkYellow'  = 'ColorTable06'
-        'Gray'        = 'ColorTable07'
-        'DarkGray'    = 'ColorTable08'
-        'Blue'        = 'ColorTable09'
-        'Green'       = 'ColorTable10'
-        'Cyan'        = 'ColorTable11'
-        'Red'         = 'ColorTable12'
-        'Magenta'     = 'ColorTable13'
-        'Yellow'      = 'ColorTable14'
-        'White'       = 'ColorTable15'
+    $colorMap = @{
+        'Black'       = @{
+            'Background' = 0
+            'Foreground' = 0
+            'Table'      = 'ColorTable00'
+        }
+        'DarkBlue'    = @{
+            'Background' = 16
+            'Foreground' = 1
+            'Table'      = 'ColorTable01'
+        }
+        'DarkGreen'   = @{
+            'Background' = 32
+            'Foreground' = 2
+            'Table'      = 'ColorTable02'
+        }
+        'DarkCyan'    = @{
+            'Background' = 48
+            'Foreground' = 3
+            'Table'      = 'ColorTable03'
+        }
+        'DarkRed'     = @{
+            'Background' = 64
+            'Foreground' = 4
+            'Table'      = 'ColorTable04'
+        }
+        'DarkMagenta' = @{
+            'Background' = 80
+            'Foreground' = 5
+            'Table'      = 'ColorTable05'
+        }
+        'DarkYellow'  = @{
+            'Background' = 96
+            'Foreground' = 6
+            'Table'      = 'ColorTable06'
+        }
+        'Gray'        = @{
+            'Background' = 112
+            'Foreground' = 7
+            'Table'      = 'ColorTable07'
+        }
+        'DarkGray'    = @{
+            'Background' = 128
+            'Foreground' = 8
+            'Table'      = 'ColorTable08'
+        }
+        'Blue'        = @{
+            'Background' = 144
+            'Foreground' = 9
+            'Table'      = 'ColorTable09'
+        }
+        'Green'       = @{
+            'Background' = 160
+            'Foreground' = 10
+            'Table'      = 'ColorTable10'
+        }
+        'Cyan'        = @{
+            'Background' = 176
+            'Foreground' = 11
+            'Table'      = 'ColorTable11'
+        }
+        'Red'         = @{
+            'Background' = 192
+            'Foreground' = 12
+            'Table'      = 'ColorTable12'
+        }
+        'Magenta'     = @{
+            'Background' = 208
+            'Foreground' = 13
+            'Table'      = 'ColorTable13'
+        }
+        'Yellow'      = @{
+            'Background' = 224
+            'Foreground' = 14
+            'Table'      = 'ColorTable14'
+        }
+        'White'       = @{
+            'Background' = 240
+            'Foreground' = 15
+            'Table'      = 'ColorTable15'
+        }
     }
 
     if (Get-Member paletteFormat -InputObject $Theme -MemberType NoteProperty) {
@@ -49,20 +113,19 @@ function Set-ColorPalette {
 
     # Set color table
     foreach ($color in ([System.ConsoleColor]).GetEnumNames()) {
-        if ($colorTable.ContainsKey($color) -and (Get-Member $color -InputObject $palette -MemberType NoteProperty)) {
+        if ($colorMap.ContainsKey($color) -and (Get-Member $color -InputObject $palette -MemberType NoteProperty)) {
             $r, $g, $b = Get-RGBValues $palette.($color) $format
             $bgrValue = [System.Convert]::ToInt32('0x'+ $b + $g + $r, 16)
             [PSConsoleTheme.ColorChanger]::MapColor($color, '0x' + $r, '0x' + $g, '0x' + $b)
 
             if ($saveReg) {
-                Set-ItemProperty -Path $key -Name $colorTable[$color] -Value $bgrValue -Force
+                Set-ItemProperty -Path $key -Name $colorMap.$color.Table -Value $bgrValue -Force
             }
         }
     }
 
     # Set background/foreground
-    $Host.UI.RawUI.ForegroundColor = $Theme.foreground
-    $Host.UI.RawUI.BackgroundColor = $Theme.background
+    [PSConsoleTheme.ColorChanger]::SetAttributes($colorMap.($Theme.foreground).Foreground + $colorMap.($Theme.background).Background)
 
     if ($saveReg) {
         $bgfgValue = Get-BFValue $Theme.background $Theme.foreground
@@ -255,6 +318,14 @@ namespace PSConsoleTheme
                     break;
             }
 
+            SetBufferInfo(hConsoleOutput, csbe);
+        }
+
+        public static void SetAttributes(ushort attributes)
+        {
+            IntPtr hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+            CONSOLE_SCREEN_BUFFER_INFO_EX csbe = GetBufferInfo(hConsoleOutput);
+            csbe.wAttributes = attributes;
             SetBufferInfo(hConsoleOutput, csbe);
         }
 

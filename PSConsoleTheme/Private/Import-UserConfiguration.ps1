@@ -15,7 +15,7 @@ function Import-UserConfiguration {
             $config = $configJson | Remove-JsonComments | ConvertFrom-Json
             if($config | Test-User) {
                 if ($config.Theme -and $Script:PSConsoleTheme.Themes.Contains($config.Theme)) {
-                    Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme].tokens
+                    Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme]
                 }
                 return $config
             }
