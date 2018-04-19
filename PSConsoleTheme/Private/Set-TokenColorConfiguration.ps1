@@ -48,15 +48,17 @@ function Set-TokenColorConfiguration {
                 }
             }
 
-            if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
-                $expression = "Set-PSReadlineOption -$($token)BackgroundColor $($Theme.background)"
-                Invoke-Expression $expression
-            }
-            elseif ($token -eq 'DefaultToken') {
-                Set-PSReadlineOption 'None' -BackgroundColor $Theme.background
-            }
-            else {
-                Set-PSReadlineOption $token -BackgroundColor $Theme.background
+            if ($Theme.background) {
+                if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
+                    $expression = "Set-PSReadlineOption -$($token)BackgroundColor $($Theme.background)"
+                    Invoke-Expression $expression
+                }
+                elseif ($token -eq 'DefaultToken') {
+                    Set-PSReadlineOption 'None' -BackgroundColor $Theme.background
+                }
+                else {
+                    Set-PSReadlineOption $token -BackgroundColor $Theme.background
+                }
             }
         }
     }
