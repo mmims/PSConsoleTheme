@@ -25,15 +25,16 @@
     "DarkMagenta": "#881798"
   },
   "tokens": {
-    "Command":   "Yellow",
-    "Comment":   "DarkGreen",
-    "Keyword":   "Green",
-    "Member":    "White",
-    "Number":    "White",
-    "Operator":  "DarkGray",
-    "Parameter": "DarkGray",
-    "String":    "DarkCyan",
-    "Type":      "Gray",
-    "Variable":  "Green"
+    "Command":      "Yellow",
+    "Comment":      "DarkGreen",
+    "DefaultToken": "Gray",
+    "Keyword":      "Green",
+    "Member":       "White",
+    "Number":       "White",
+    "Operator":     "DarkGray",
+    "Parameter":    "DarkGray",
+    "String":       "DarkCyan",
+    "Type":         "Gray",
+    "Variable":     "Green"
   }
 }

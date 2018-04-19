@@ -10,7 +10,7 @@ function Set-TokenColorConfiguration {
 
     $tokenColors = $Theme.tokens
     if(Get-Module PSReadLine) {
-        if ($Reset.IsPresent -or !$tokenColors) {
+        if ($Reset -or !$TokenColors) {
             # Set-PSReadlineOption -ResetTokenColors could be used, but is set to be deprecated in 2.0
             $tokenColors = [PSCustomObject]@{
                 'ContinuationPrompt' = 'Gray'
@@ -28,6 +28,10 @@ function Set-TokenColorConfiguration {
                 'Emphasis' = 'Cyan'
                 'Error' = 'Red'
             }
+        } else {
+            # Reset tokens to the defaults before applying theme specific mappings
+            # Attempts to resolve issue where DefaultToken is set incorrectly
+            Set-TokenColorConfiguration -Reset
         }
 
         # Breaking changes are coming in PSReadLine 2.0. Colors should be set via the -Color parameter with a hashtable

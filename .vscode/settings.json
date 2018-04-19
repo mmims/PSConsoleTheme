@@ -1,5 +1,11 @@
 {
     "files.exclude": {
-        "module/": true
+        "**/module": true
+    },
+    "files.watcherExclude": {
+        "**/module": true
+    },
+    "search.exclude": {
+        "**/module": true
     }
 }

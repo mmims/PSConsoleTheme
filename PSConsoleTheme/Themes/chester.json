@@ -24,15 +24,16 @@
     "White":       "0xffffff"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkGreen",
-    "Keyword":   "Green",
-    "Member":    "Blue",
-    "Number":    "Magenta",
-    "Operator":  "Green",
-    "Parameter": "Gray",
-    "String":    "Cyan",
-    "Type":      "DarkYellow",
-    "Variable":  "Blue"
+    "Command":      "Blue",
+    "Comment":      "DarkGreen",
+    "DefaultToken": "Gray",
+    "Keyword":      "Green",
+    "Member":       "Blue",
+    "Number":       "Magenta",
+    "Operator":     "Green",
+    "Parameter":    "Gray",
+    "String":       "Cyan",
+    "Type":         "DarkYellow",
+    "Variable":     "Blue"
   }
 }
