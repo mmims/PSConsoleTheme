@@ -2,16 +2,17 @@ function Set-TokenColorConfiguration {
     # [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     param(
         [Parameter(Mandatory=$false)]
-        $TokenColors,
+        $Theme,
 
         [Parameter(Mandatory=$false)]
         [switch] $Reset
     )
 
+    $tokenColors = $Theme.tokens
     if(Get-Module PSReadLine) {
-        if ($Reset.IsPresent -or !$TokenColors) {
+        if ($Reset.IsPresent -or !$tokenColors) {
             # Set-PSReadlineOption -ResetTokenColors could be used, but is set to be deprecated in 2.0
-            $TokenColors = [PSCustomObject]@{
+            $tokenColors = [PSCustomObject]@{
                 'ContinuationPrompt' = 'Gray'
                 'DefaultToken' = 'Gray'
                 'Comment' = 'DarkGreen'
@@ -31,16 +32,27 @@ function Set-TokenColorConfiguration {
 
         # Breaking changes are coming in PSReadLine 2.0. Colors should be set via the -Color parameter with a hashtable
         foreach ($token in @('ContinuationPrompt','DefaultToken','Comment','Keyword','String','Operator','Variable','Command','Parameter','Type','Number','Member','Emphasis','Error')) {
-            if (Get-Member $token -InputObject $TokenColors) {
+            if (Get-Member $token -InputObject $tokenColors) {
                 if ($token -in @('ContinuationPrompt','Emphasis','Error')) {
-                    $expression = "Set-PSReadlineOption -$($token)ForegroundColor $($TokenColors.($token))"
+                    $expression = "Set-PSReadlineOption -$($token)ForegroundColor $($tokenColors.($token))"
                     Invoke-Expression $expression
                 } elseif ($token -eq 'DefaultToken') {
-                    Set-PSReadlineOption 'None' -ForegroundColor $TokenColors.($token)
+                    Set-PSReadlineOption 'None' -ForegroundColor $tokenColors.($token)
                 }
                 else {
-                    Set-PSReadlineOption $token -ForegroundColor $TokenColors.($token)
+                    Set-PSReadlineOption $token -ForegroundColor $tokenColors.($token)
                 }
+            }
+
+            if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
+                $expression = "Set-PSReadlineOption -$($token)BackgroundColor $($Theme.background)"
+                Invoke-Expression $expression
+            }
+            elseif ($token -eq 'DefaultToken') {
+                Set-PSReadlineOption 'None' -BackgroundColor $Theme.background
+            }
+            else {
+                Set-PSReadlineOption $token -BackgroundColor $Theme.background
             }
         }
     }
