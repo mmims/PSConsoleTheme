@@ -8,6 +8,10 @@ function Set-ConsoleTheme {
     )
 
     DynamicParam {
+        if (!$PSConsoleTheme.ThemesLoaded) {
+            $PSConsoleTheme.Themes = Get-Theme
+        }
+
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = 'Name'
 
@@ -41,13 +45,13 @@ function Set-ConsoleTheme {
                 $Name = $PSBoundParameters['Name']
 
                 if ($Name) {
-                    $Script:PSConsoleTheme.User.Theme = $Name
                     $theme = $PSConsoleTheme.Themes[$Name]
+                    $Script:PSConsoleTheme.User.Theme = $Name
+                    $Script:PSConsoleTheme.User.Path = $theme.path
                     try {
                         if (($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
                             Set-ColorPalette $theme
                             Set-TokenColorConfiguration $theme
-                            Export-UserConfiguration
                         }
                     }
                     catch {

@@ -15,7 +15,6 @@ function Get-Theme {
     foreach ($path in $ThemePath) {
         $configFiles = Get-ChildItem $path "*.json"
     
-        $processed = 0
         foreach ($config in $configFiles) {
             try
             {
@@ -25,14 +24,15 @@ function Get-Theme {
                         Write-Warning ($theme_msgs.warning_ambiguous_theme -f $theme.name, $config.FullName)
                         break
                     }
+                    $theme | Add-Member path $config.FullName
                     $themes.Add($theme.name, $theme)
-                    $processed++
                 }
             } catch {
                 Write-Warning $_
             }
         }
     }
+    $Script:PSConsoleTheme.ThemesLoaded = $true
 
     $themes
 }

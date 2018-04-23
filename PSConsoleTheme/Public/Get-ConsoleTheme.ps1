@@ -13,6 +13,10 @@ function Get-ConsoleTheme {
     )
 
     DynamicParam {
+        if (!$PSConsoleTheme.ThemesLoaded) {
+            $PSConsoleTheme.Themes = Get-Theme
+        }
+
         if ($PSConsoleTheme.Themes.Count -gt 0) {
             $parameterName = 'Name'
 

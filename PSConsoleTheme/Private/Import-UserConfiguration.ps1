@@ -13,10 +13,27 @@ function Import-UserConfiguration {
 
         try {
             $config = $configJson | Remove-JsonComments | ConvertFrom-Json
-            if($config | Test-User) {
-                if ($config.Theme -and $Script:PSConsoleTheme.Themes.Contains($config.Theme)) {
-                    Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme]
+            if ($config | Test-User) {
+                if ($config.Path) {
+                    try {
+                        $theme = Import-ThemeConfiguration $config.Path -ErrorAction Stop
+                        $theme | Add-Member path $config.Path
+                        $Script:PSConsoleTheme.Themes.Add($theme.name, $theme)
+                    } catch {
+                        Write-Warning $_
+                    }
+                } else {
+                    $config | Add-Member Path $null
+                    if ($config.Theme) {
+                        if (!$Script:PSConsoleTheme.ThemesLoaded) {
+                            $Script:PSConsoleTheme.Themes = Get-Theme
+                        }
+                        if ($Script:PSConsoleTheme.Themes.Contains($config.Theme)) {
+                            Set-TokenColorConfiguration $Script:PSConsoleTheme.Themes[$config.Theme]
+                        }
+                    }
                 }
+
                 return $config
             }
         }
