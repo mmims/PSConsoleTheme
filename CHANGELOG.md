@@ -1,5 +1,22 @@
 # PSConsoleTheme Changes
 
+## Version 0.3.0
+
+Features
+
+* Added `ShowColors` parameter to `Get-ConsoleTheme` to display the current color palette.
+
+Performance
+
+* Lazy load themes to decrease module import time.
+
+Bug Fixes
+
+* Reset PSReadline tokens before loading a theme.
+* Ensure PSReadline token backgrounds are set properly.
+* Use Win32 API to accurately set the active console background and foreground.
+* Improve error handling.
+
 ## Version 0.2.0
 
 Features
