@@ -4,7 +4,10 @@ function Set-ConsoleTheme {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     Param (
         [Parameter(Mandatory = $false, ParameterSetName = 'Reset')]
-        [switch] $Reset
+        [switch] $Reset,
+
+        [Parameter(Mandatory = $false)]
+        [switch] $Session
     )
 
     DynamicParam {
@@ -37,9 +40,12 @@ function Set-ConsoleTheme {
         switch ($PSCmdlet.ParameterSetName) {
             'Reset' {
                 if ($Reset.IsPresent) {
-                    Set-ColorPalette -Reset
+                    Set-ColorPalette -Reset -Session:$Session
                     Set-TokenColorConfiguration -Reset
-                    Export-UserConfiguration -Reset
+
+                    if (!$Session) {
+                        Export-UserConfiguration -Reset
+                    }
                 }
             } Default {
                 $Name = $PSBoundParameters['Name']
@@ -48,9 +54,10 @@ function Set-ConsoleTheme {
                     $theme = $PSConsoleTheme.Themes[$Name]
                     $Script:PSConsoleTheme.User.Theme = $Name
                     $Script:PSConsoleTheme.User.Path = $theme.path
+
                     try {
                         if (($theme | Test-Theme) -and ($theme.palette | Test-Palette)) {
-                            Set-ColorPalette $theme
+                            Set-ColorPalette $theme -Session:$Session
                             Set-TokenColorConfiguration $theme
                         }
                     }
@@ -58,7 +65,10 @@ function Set-ConsoleTheme {
                         Write-Error (("Invalid theme configuration for '{0}'." -f $theme.Name) + "`n" + $_)
                         return
                     }
-                    Export-UserConfiguration
+
+                    if (!$Session) {
+                        Export-UserConfiguration
+                    }
                 }
             }
         }

@@ -4,11 +4,14 @@ function Set-ColorPalette {
         [System.Object] $Theme,
 
         [Parameter(Mandatory=$false)]
-        [switch] $Reset
+        [switch] $Reset,
+
+        [Parameter(Mandatory=$false)]
+        [switch] $Session
     )
 
     $key = 'HKCU:\Console'
-    $saveReg = $true
+    $saveReg = !$Session
 
     if ($Reset.IsPresent) {
         Remove-ItemProperty -Path $key -Name ColorTable* -Force -ErrorAction SilentlyContinue
