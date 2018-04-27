@@ -2,6 +2,7 @@ param (
     [ValidateSet('Release','Debug')]
     [string]$Configuration = (property 'Configuration' 'Release'),
     [string]$NuGetApiKey = (property 'NuGetApiKey' ''),
+    [switch]$User,
     [string]$Version
 )
 
@@ -31,6 +32,9 @@ task BuildMamlHelp @mamlHelpParams -If ($Configuration -eq 'Release') {
 # Synopsis: Remove all build related artifacts
 task Clean {
     Remove-Item module -Recurse -Force -ErrorAction Ignore
+    if ($User) {
+        Join-Path $env:USERPROFILE '.psconsoletheme' | Join-Path -ChildPath 'config.json' | Remove-Item -Recurse -Force -Confirm
+    }
 }
 
 # Synopsis: Import the module for use in the current session

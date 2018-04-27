@@ -13,7 +13,7 @@ function Export-UserConfiguration {
 
     $configFile = Join-Path $Path 'config.json'
     if (!(Test-Path $Path -PathType Container)) {
-        New-Item $Path -ItemType Directory
+        New-Item $Path -ItemType Directory | Out-Null
     }
 
     ConvertTo-Json $Script:PSConsoleTheme.User | Out-File $configFile -Force

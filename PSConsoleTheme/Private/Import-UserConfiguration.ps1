@@ -19,6 +19,7 @@ function Import-UserConfiguration {
                         $theme = Import-ThemeConfiguration $config.Path -ErrorAction Stop
                         $theme | Add-Member path $config.Path
                         $Script:PSConsoleTheme.Themes.Add($theme.name, $theme)
+                        Set-TokenColorConfiguration $theme
                     } catch {
                         Write-Warning $_
                     }
