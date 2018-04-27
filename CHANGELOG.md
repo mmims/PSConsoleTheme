@@ -1,5 +1,16 @@
 # PSConsoleTheme Changes
 
+## Version 0.4.0
+
+Features
+
+* Add ability to change colors for the current session only.
+
+Bug Fixes
+
+* Set token colors when path is specified in user configuration.
+* Suppress directory creation output during export.
+
 ## Version 0.3.0
 
 Features

@@ -120,7 +120,7 @@ task UpdateVersion {
         Minor {
             $update = "$($current.Major).$($current.Minor + 1).0"
         }
-        Build {
+        Patch {
             $update = "$($current.Major).$($current.Minor).$($current.Build + 1)"
         }
         Default {
