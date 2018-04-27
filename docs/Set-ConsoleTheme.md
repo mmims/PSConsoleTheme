@@ -14,12 +14,12 @@ Sets the console and PSReadline token colors.
 
 ### ByName (Default)
 ```
-Set-ConsoleTheme [[-Name] <String>] [<CommonParameters>]
+Set-ConsoleTheme [[-Name] <String>] [-Session] [<CommonParameters>]
 ```
 
 ### Reset
 ```
-Set-ConsoleTheme [-Reset] [<CommonParameters>]
+Set-ConsoleTheme [-Reset] [-Session] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -65,6 +65,21 @@ Indicates that this cmdlet set all console colors and PSReadline tokens to the s
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Reset
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Session
+Set the console theme for the current session only. Theme changes will not be saved.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
 Aliases:
 
 Required: False

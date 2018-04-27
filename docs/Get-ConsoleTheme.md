@@ -14,7 +14,7 @@ Gets the current console theme or a list of available themes.
 
 ### ByName (Default)
 ```
-Get-ConsoleTheme [[-Name] <String>] [<CommonParameters>]
+Get-ConsoleTheme [[-Name] <String>] [-ShowColors] [<CommonParameters>]
 ```
 
 ### Available
@@ -94,6 +94,21 @@ Indicates that this cmdlet reload available console themes.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Refresh
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShowColors
+Indicates that this cmdlet displays a table with the colors of the current console theme. If a theme name is specifed, this parameter is ignored.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: ByName
 Aliases:
 
 Required: False
