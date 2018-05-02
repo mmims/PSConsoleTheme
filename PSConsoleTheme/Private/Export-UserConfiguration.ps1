@@ -8,6 +8,7 @@ function Export-UserConfiguration {
     )
 
     if ($Reset.IsPresent -and $Script:PSConsoleTheme.User.Theme) {
+        $Script:PSConsoleTheme.User.Path = $null
         $Script:PSConsoleTheme.User.Theme = $null
     }
 

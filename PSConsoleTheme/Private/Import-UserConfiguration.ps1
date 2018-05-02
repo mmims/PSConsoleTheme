@@ -24,7 +24,7 @@ function Import-UserConfiguration {
                         Write-Warning $_
                     }
                 } else {
-                    $config | Add-Member Path $null
+                    $config | Add-Member Path $null -Force
                     if ($config.Theme) {
                         if (!$Script:PSConsoleTheme.ThemesLoaded) {
                             $Script:PSConsoleTheme.Themes = Get-Theme
