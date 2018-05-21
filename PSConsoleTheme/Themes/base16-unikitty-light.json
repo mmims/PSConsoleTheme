@@ -1,39 +1,59 @@
 {
   "name": "Unikitty Light",
   "description": "Unikitty Light scheme by Josh W Lewis (@joshwlewis).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#ffffff",
-    "DarkGray":    "#e1e1e2",
-    "DarkGreen":   "#c4c3c5",
-    "DarkYellow":  "#a7a5a8",
-    "DarkBlue":    "#89878b",
-    "DarkCyan":    "#6c696e",
-    "Gray":        "#4f4b51",
-    "White":       "#322d34",
-    "Red":         "#d8137f",
-    "DarkRed":     "#d65407",
-    "Yellow":      "#dc8a0e",
-    "Green":       "#17ad98",
-    "Cyan":        "#149bda",
-    "Blue":        "#775dff",
-    "Magenta":     "#aa17e6",
-    "DarkMagenta": "#e013d0"
+    "Black": "#ffffff",
+    "DarkGray": "#e1e1e2",
+    "Cyan": "#c4c3c5",
+    "Blue": "#a7a5a8",
+    "Yellow": "#89878b",
+    "Green": "#6c696e",
+    "Gray": "#4f4b51",
+    "White": "#322d34",
+    "DarkRed": "#d8137f",
+    "Red": "#d65407",
+    "DarkYellow": "#dc8a0e",
+    "DarkGreen": "#17ad98",
+    "DarkCyan": "#149bda",
+    "DarkBlue": "#775dff",
+    "DarkMagenta": "#aa17e6",
+    "Magenta": "#e013d0"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

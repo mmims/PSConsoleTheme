@@ -1,39 +1,59 @@
 {
   "name": "Atelier Savanna Light",
   "description": "Atelier Savanna Light scheme by Bram de Haan (http://atelierbramdehaan.nl).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#ecf4ee",
-    "DarkGray":    "#dfe7e2",
-    "DarkGreen":   "#87928a",
-    "DarkYellow":  "#78877d",
-    "DarkBlue":    "#5f6d64",
-    "DarkCyan":    "#526057",
-    "Gray":        "#232a25",
-    "White":       "#171c19",
-    "Red":         "#b16139",
-    "DarkRed":     "#9f713c",
-    "Yellow":      "#a07e3b",
-    "Green":       "#489963",
-    "Cyan":        "#1c9aa0",
-    "Blue":        "#478c90",
-    "Magenta":     "#55859b",
-    "DarkMagenta": "#867469"
+    "Black": "#ecf4ee",
+    "DarkGray": "#dfe7e2",
+    "Cyan": "#87928a",
+    "Blue": "#78877d",
+    "Yellow": "#5f6d64",
+    "Green": "#526057",
+    "Gray": "#232a25",
+    "White": "#171c19",
+    "DarkRed": "#b16139",
+    "Red": "#9f713c",
+    "DarkYellow": "#a07e3b",
+    "DarkGreen": "#489963",
+    "DarkCyan": "#1c9aa0",
+    "DarkBlue": "#478c90",
+    "DarkMagenta": "#55859b",
+    "Magenta": "#867469"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

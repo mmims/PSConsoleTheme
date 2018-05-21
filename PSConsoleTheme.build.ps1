@@ -92,7 +92,7 @@ task LayoutModule -Partial @layoutModuleParams BuildMamlHelp, {
     }
 
 # Synopsis: Publish the module to PSGallery
-task Publish -If ($Configuration -eq 'Release') {
+task Publish -If ($Configuration -eq 'Release') LayoutModule, {
     if ($NuGetApiKey -eq '') {
         throw "Cannot publish. NuGet API key not set."
     }

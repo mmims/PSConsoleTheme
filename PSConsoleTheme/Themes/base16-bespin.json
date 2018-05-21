@@ -1,39 +1,59 @@
 {
   "name": "Bespin",
   "description": "Bespin scheme by Jan T. Sott.",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#28211c",
-    "DarkGray":    "#36312e",
-    "DarkGreen":   "#5e5d5c",
-    "DarkYellow":  "#666666",
-    "DarkBlue":    "#797977",
-    "DarkCyan":    "#8a8986",
-    "Gray":        "#9d9b97",
-    "White":       "#baae9e",
-    "Red":         "#cf6a4c",
-    "DarkRed":     "#cf7d34",
-    "Yellow":      "#f9ee98",
-    "Green":       "#54be0d",
-    "Cyan":        "#afc4db",
-    "Blue":        "#5ea6ea",
-    "Magenta":     "#9b859d",
-    "DarkMagenta": "#937121"
+    "Black": "#28211c",
+    "DarkGray": "#36312e",
+    "Cyan": "#5e5d5c",
+    "Blue": "#666666",
+    "Yellow": "#797977",
+    "Green": "#8a8986",
+    "Gray": "#9d9b97",
+    "White": "#baae9e",
+    "DarkRed": "#cf6a4c",
+    "Red": "#cf7d34",
+    "DarkYellow": "#f9ee98",
+    "DarkGreen": "#54be0d",
+    "DarkCyan": "#afc4db",
+    "DarkBlue": "#5ea6ea",
+    "DarkMagenta": "#9b859d",
+    "Magenta": "#937121"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

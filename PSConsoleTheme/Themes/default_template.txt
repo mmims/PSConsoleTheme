@@ -25,15 +25,35 @@
     "DarkMagenta": ""  // base0F
   },
   "tokens": {
-    "Command":   "Blue",       // base0D
-    "Comment":   "DarkYellow", // base03
-    "Keyword":   "Magenta",    // base0E
-    "Member":    "Blue",       // base0D
-    "Number":    "DarkRed",    // base09
-    "Operator":  "Cyan",       // base0C
-    "Parameter": "DarkRed",    // base09
-    "String":    "Green",      // base0B
-    "Type":      "Yellow",     // base0A
-    "Variable":  "Red"         // base08
+    "readline": {
+      "foreground": {
+        "Command":            "Blue",       // base0D
+        "Comment":            "DarkYellow", // base03
+        "ContinuationPrompt": "Gray",
+        "DefaultToken":       "Gray",
+        "Emphasis":           "DarkCyan",
+        "Error":              "DarkRed",
+        "Keyword":            "Magenta",    // base0E
+        "Member":             "Blue",       // base0D
+        "Number":             "DarkRed",    // base09
+        "Operator":           "Cyan",       // base0C
+        "Parameter":          "DarkRed",    // base09
+        "String":             "Green",      // base0B
+        "Type":               "Yellow",     // base0A
+        "Variable":           "Red"         // base08
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error":    "DarkRed",
+        "Warning":  "DarkYellow",
+        "Verbose":  "DarkYellow",
+        "Debug":    "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkCyan"
+      }
+    }
   }
 }

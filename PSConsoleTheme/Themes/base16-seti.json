@@ -1,39 +1,59 @@
 {
   "name": "Seti UI",
   "description": "Seti UI scheme by .",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#151718",
-    "DarkGray":    "#282a2b",
-    "DarkGreen":   "#3b758c",
-    "DarkYellow":  "#41535b",
-    "DarkBlue":    "#43a5d5",
-    "DarkCyan":    "#d6d6d6",
-    "Gray":        "#eeeeee",
-    "White":       "#ffffff",
-    "Red":         "#cd3f45",
-    "DarkRed":     "#db7b55",
-    "Yellow":      "#e6cd69",
-    "Green":       "#9fca56",
-    "Cyan":        "#55dbbe",
-    "Blue":        "#55b5db",
-    "Magenta":     "#a074c4",
-    "DarkMagenta": "#8a553f"
+    "Black": "#151718",
+    "DarkGray": "#282a2b",
+    "Cyan": "#3b758c",
+    "Blue": "#41535b",
+    "Yellow": "#43a5d5",
+    "Green": "#d6d6d6",
+    "Gray": "#eeeeee",
+    "White": "#ffffff",
+    "DarkRed": "#cd3f45",
+    "Red": "#db7b55",
+    "DarkYellow": "#e6cd69",
+    "DarkGreen": "#9fca56",
+    "DarkCyan": "#55dbbe",
+    "DarkBlue": "#55b5db",
+    "DarkMagenta": "#a074c4",
+    "Magenta": "#8a553f"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

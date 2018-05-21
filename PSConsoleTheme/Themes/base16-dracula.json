@@ -1,39 +1,59 @@
 {
   "name": "Dracula",
   "description": "Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#282936",
-    "DarkGray":    "#3a3c4e",
-    "DarkGreen":   "#4d4f68",
-    "DarkYellow":  "#626483",
-    "DarkBlue":    "#62d6e8",
-    "DarkCyan":    "#e9e9f4",
-    "Gray":        "#f1f2f8",
-    "White":       "#f7f7fb",
-    "Red":         "#ea51b2",
-    "DarkRed":     "#b45bcf",
-    "Yellow":      "#00f769",
-    "Green":       "#ebff87",
-    "Cyan":        "#a1efe4",
-    "Blue":        "#62d6e8",
-    "Magenta":     "#b45bcf",
-    "DarkMagenta": "#00f769"
+    "Black": "#282936",
+    "DarkGray": "#3a3c4e",
+    "Cyan": "#626483",
+    "Blue": "#4d4f68",
+    "Yellow": "#62d6e8",
+    "Green": "#e9e9f4",
+    "Gray": "#f1f2f8",
+    "White": "#f7f7fb",
+    "DarkRed": "#ea51b2",
+    "Red": "#b45bcf",
+    "DarkYellow": "#ebff87",
+    "DarkGreen": "#00f769",
+    "DarkCyan": "#a1efe4",
+    "DarkBlue": "#62d6e8",
+    "DarkMagenta": "#b45bcf",
+    "Magenta": "#00f769"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

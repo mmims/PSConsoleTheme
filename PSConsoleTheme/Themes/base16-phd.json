@@ -1,39 +1,59 @@
 {
   "name": "PhD",
   "description": "PhD scheme by Hennig Hasemann (http://leetless.de/vim.html).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#061229",
-    "DarkGray":    "#2a3448",
-    "DarkGreen":   "#4d5666",
-    "DarkYellow":  "#717885",
-    "DarkBlue":    "#9a99a3",
-    "DarkCyan":    "#b8bbc2",
-    "Gray":        "#dbdde0",
-    "White":       "#ffffff",
-    "Red":         "#d07346",
-    "DarkRed":     "#f0a000",
-    "Yellow":      "#fbd461",
-    "Green":       "#99bf52",
-    "Cyan":        "#72b9bf",
-    "Blue":        "#5299bf",
-    "Magenta":     "#9989cc",
-    "DarkMagenta": "#b08060"
+    "Black": "#061229",
+    "DarkGray": "#2a3448",
+    "Cyan": "#4d5666",
+    "Blue": "#717885",
+    "Yellow": "#9a99a3",
+    "Green": "#b8bbc2",
+    "Gray": "#dbdde0",
+    "White": "#ffffff",
+    "DarkRed": "#d07346",
+    "Red": "#f0a000",
+    "DarkYellow": "#fbd461",
+    "DarkGreen": "#99bf52",
+    "DarkCyan": "#72b9bf",
+    "DarkBlue": "#5299bf",
+    "DarkMagenta": "#9989cc",
+    "Magenta": "#b08060"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

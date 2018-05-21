@@ -1,39 +1,59 @@
 {
   "name": "One Light",
   "description": "One Light scheme by Daniel Pfeifer (http://github.com/purpleKarrot).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#fafafa",
-    "DarkGray":    "#f0f0f1",
-    "DarkGreen":   "#e5e5e6",
-    "DarkYellow":  "#a0a1a7",
-    "DarkBlue":    "#696c77",
-    "DarkCyan":    "#383a42",
-    "Gray":        "#202227",
-    "White":       "#090a0b",
-    "Red":         "#ca1243",
-    "DarkRed":     "#d75f00",
-    "Yellow":      "#c18401",
-    "Green":       "#50a14f",
-    "Cyan":        "#0184bc",
-    "Blue":        "#4078f2",
-    "Magenta":     "#a626a4",
-    "DarkMagenta": "#986801"
+    "Black": "#fafafa",
+    "DarkGray": "#f0f0f1",
+    "Cyan": "#e5e5e6",
+    "Blue": "#a0a1a7",
+    "Yellow": "#696c77",
+    "Green": "#383a42",
+    "Gray": "#202227",
+    "White": "#090a0b",
+    "DarkRed": "#ca1243",
+    "Red": "#d75f00",
+    "DarkYellow": "#c18401",
+    "DarkGreen": "#50a14f",
+    "DarkCyan": "#0184bc",
+    "DarkBlue": "#4078f2",
+    "DarkMagenta": "#a626a4",
+    "Magenta": "#986801"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

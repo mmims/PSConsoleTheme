@@ -1,39 +1,59 @@
 {
   "name": "Gruvbox dark, medium",
   "description": "Gruvbox dark, medium scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#282828",
-    "DarkGray":    "#3c3836",
-    "DarkGreen":   "#504945",
-    "DarkYellow":  "#665c54",
-    "DarkBlue":    "#bdae93",
-    "DarkCyan":    "#d5c4a1",
-    "Gray":        "#ebdbb2",
-    "White":       "#fbf1c7",
-    "Red":         "#fb4934",
-    "DarkRed":     "#fe8019",
-    "Yellow":      "#fabd2f",
-    "Green":       "#b8bb26",
-    "Cyan":        "#8ec07c",
-    "Blue":        "#83a598",
-    "Magenta":     "#d3869b",
-    "DarkMagenta": "#d65d0e"
+    "Black": "#282828",
+    "DarkGray": "#3c3836",
+    "Cyan": "#504945",
+    "Blue": "#665c54",
+    "Yellow": "#bdae93",
+    "Green": "#d5c4a1",
+    "Gray": "#ebdbb2",
+    "White": "#fbf1c7",
+    "DarkRed": "#fb4934",
+    "Red": "#fe8019",
+    "DarkYellow": "#fabd2f",
+    "DarkGreen": "#b8bb26",
+    "DarkCyan": "#8ec07c",
+    "DarkBlue": "#83a598",
+    "DarkMagenta": "#d3869b",
+    "Magenta": "#d65d0e"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

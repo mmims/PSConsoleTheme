@@ -1,39 +1,59 @@
 {
   "name": "Atelier Heath",
   "description": "Atelier Heath scheme by Bram de Haan (http://atelierbramdehaan.nl).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#1b181b",
-    "DarkGray":    "#292329",
-    "DarkGreen":   "#695d69",
-    "DarkYellow":  "#776977",
-    "DarkBlue":    "#9e8f9e",
-    "DarkCyan":    "#ab9bab",
-    "Gray":        "#d8cad8",
-    "White":       "#f7f3f7",
-    "Red":         "#ca402b",
-    "DarkRed":     "#a65926",
-    "Yellow":      "#bb8a35",
-    "Green":       "#918b3b",
-    "Cyan":        "#159393",
-    "Blue":        "#516aec",
-    "Magenta":     "#7b59c0",
-    "DarkMagenta": "#cc33cc"
+    "Black": "#1b181b",
+    "DarkGray": "#292329",
+    "Cyan": "#695d69",
+    "Blue": "#776977",
+    "Yellow": "#9e8f9e",
+    "Green": "#ab9bab",
+    "Gray": "#d8cad8",
+    "White": "#f7f3f7",
+    "DarkRed": "#ca402b",
+    "Red": "#a65926",
+    "DarkYellow": "#bb8a35",
+    "DarkGreen": "#918b3b",
+    "DarkCyan": "#159393",
+    "DarkBlue": "#516aec",
+    "DarkMagenta": "#7b59c0",
+    "Magenta": "#cc33cc"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

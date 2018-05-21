@@ -10,6 +10,26 @@ function Out-Colors {
         "{0,-$space}" -f (("{0," + [System.Math]::Floor(($space + $string.Length) / 2) + "}") -f $string)
     }
 
+    function CloneObject ([object] $deepCopyObject) {
+        $memStream = New-Object IO.MemoryStream
+        $formatter = New-Object Runtime.Serialization.Formatters.Binary.BinaryFormatter
+        $formatter.Serialize($memStream, $deepCopyObject)
+        $memStream.Position = 0
+        $formatter.Deserialize($memStream)
+    }
+
+    if (Get-Module PSReadline) {
+        $colorMap = CloneObject $Script:PSColorMap
+        $options = Get-PSReadlineOption
+        $tokens = $options | Get-Member -MemberType Property -Name *ForegroundColor `
+            | ForEach-Object { $_.Name -replace '(.+)ForegroundColor', '$1' }
+
+        foreach ($t in $tokens) {
+            $color = Invoke-Expression "`$options.$($t)ForegroundColor.ToString()"
+            $colorMap[$color].Tokens += $t
+        }
+    }
+
     switch ($Mode) {
         'Ansi' {
             Write-Host ("`n{0,8} {1,-5} " -f '', '  m') -NoNewline
@@ -36,7 +56,7 @@ function Out-Colors {
             Write-Host ''
             Write-Host (' {0,18} | {1} | {2}' -f 'Cmd Color [Table]', (CenterString 'Dark' 14), (CenterString 'Light' 14))
             Write-Host (' ' + ('-' * 52))
-            foreach($color in ($Script:CmdColorMap.GetEnumerator() | Sort-Object {$_.Value.Table })) {
+            foreach ($color in ($Script:CmdColorMap.GetEnumerator() | Sort-Object {$_.Value.Table })) {
                 Write-Host (' {0,13} [{1}] | ' -f $color.Name, $color.Value.Table) -NoNewline
                 Write-Host (CenterString $color.Name 14) -ForegroundColor $color.Value.PShell.Name -BackgroundColor Black -NoNewline
                 Write-Host ' | ' -NoNewline
@@ -46,23 +66,23 @@ function Out-Colors {
         }
         'PowerShell' {
             Write-Host ''
-            Write-Host (' {0,13} | {1} | {2}' -f 'PS Color', (CenterString 'Dark' 14), (CenterString 'Light' 14))
-            Write-Host (' ' + ('-' * 47))
-            foreach ($color in ($Script:PSColorMap.GetEnumerator() | Sort-Object {$_.Value.Table })) {
+            Write-Host (' {0,13} | {1} | {2}' -f 'PS Color', (CenterString 'Theme' 10), 'Tokens')
+            Write-Host (' ' + ('-' * 78))
+            foreach ($color in ($colorMap.GetEnumerator() | Sort-Object {$_.Value.Cmd.Table })) {
                 Write-Host (' {0,13} | ' -f $color.Name) -NoNewline
-                Write-Host (CenterString $color.Name 14) -ForegroundColor $color.Name -BackgroundColor Black -NoNewline
+                Write-Host (CenterString ' ' 10) -ForegroundColor Black -BackgroundColor $color.Name -NoNewline
                 Write-Host ' | ' -NoNewline
-                Write-Host (CenterString $color.Name 14) -ForegroundColor $color.Name -BackgroundColor White
+                Write-Host ($color.Value.Tokens -join ', ') -ForegroundColor $color.Name
             }
             Write-Host "`n"
         }
         Default {
             $PSColorMap.GetEnumerator() | Sort-Object {[System.Convert]::ToInt32($_.Value.Ansi.BG)} `
                 | Format-Table -Property Name, @{Label = 'Cmd'; Expression = {$_.Value.Cmd.Name}},
-                    @{Label = 'Table'; Expression = {$_.Value.Cmd.Table}},
-                    @{Label = 'Ansi'; Expression = {$_.Value.Ansi.Name}},
-                    @{Label = 'FG'; Expression = {$_.Value.Ansi.FG}},
-                    @{Label = 'BG'; Expression = {$_.Value.Ansi.BG}} -AutoSize
+            @{Label = 'Table'; Expression = {$_.Value.Cmd.Table}},
+            @{Label = 'Ansi'; Expression = {$_.Value.Ansi.Name}},
+            @{Label = 'FG'; Expression = {$_.Value.Ansi.FG}},
+            @{Label = 'BG'; Expression = {$_.Value.Ansi.BG}} -AutoSize
         }
     }
 }
@@ -70,180 +90,196 @@ function Out-Colors {
 
 $Script:PSColorMap = @{
     'Black'       = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Black'
             'FG'   = '30'
             'BG'   = '40'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Black'
             'Table' = '00'
         }
+        'Tokens' = @()
     }
     'DarkRed'     = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Red'
             'FG'   = '31'
             'BG'   = '41'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Red'
             'Table' = '04'
         }
+        'Tokens' = @()
     }
     'DarkGreen'   = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Green'
             'FG'   = '32'
             'BG'   = '42'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Green'
             'Table' = '02'
         }
+        'Tokens' = @()
     }
     'DarkYellow'  = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Yellow'
             'FG'   = '33'
             'BG'   = '43'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Yellow'
             'Table' = '06'
         }
+        'Tokens' = @()
     }
     'DarkBlue'    = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Blue'
             'FG'   = '34'
             'BG'   = '44'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Blue'
             'Table' = '01'
         }
+        'Tokens' = @()
     }
     'DarkMagenta' = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Magenta'
             'FG'   = '35'
             'BG'   = '45'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Purple'
             'Table' = '05'
         }
+        'Tokens' = @()
     }
     'DarkCyan'    = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Cyan'
             'FG'   = '36'
             'BG'   = '46'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Aqua'
             'Table' = '03'
         }
+        'Tokens' = @()
     }
     'Gray'        = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'White'
             'FG'   = '37'
             'BG'   = '47'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'White'
             'Table' = '07'
         }
+        'Tokens' = @()
     }
     'DarkGray'    = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Black'
             'FG'   = '30;1'
             'BG'   = '100'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Gray'
             'Table' = '08'
         }
+        'Tokens' = @()
     }
     'Red'         = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Red'
             'FG'   = '31;1'
             'BG'   = '101'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Red'
             'Table' = '12'
         }
+        'Tokens' = @()
     }
     'Green'       = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Green'
             'FG'   = '32;1'
             'BG'   = '102'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Green'
             'Table' = '10'
         }
+        'Tokens' = @()
     }
     'Yellow'      = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Yellow'
             'FG'   = '33;1'
             'BG'   = '103'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Yellow'
             'Table' = '14'
         }
+        'Tokens' = @()
     }
     'Blue'        = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Blue'
             'FG'   = '34;1'
             'BG'   = '104'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Blue'
             'Table' = '09'
         }
+        'Tokens' = @()
     }
     'Magenta'     = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Magenta'
             'FG'   = '35;1'
             'BG'   = '105'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Purple'
             'Table' = '13'
         }
+        'Tokens' = @()
     }
     'Cyan'        = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright Cyan'
             'FG'   = '36;1'
             'BG'   = '106'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Light Aqua'
             'Table' = '11'
         }
+        'Tokens' = @()
     }
     'White'       = @{
-        'Ansi' = @{
+        'Ansi'   = @{
             'Name' = 'Bright White'
             'FG'   = '37;1'
             'BG'   = '107'
         }
-        'Cmd'  = @{
+        'Cmd'    = @{
             'Name'  = 'Bright White'
             'Table' = '15'
         }
+        'Tokens' = @()
     }
 }
 

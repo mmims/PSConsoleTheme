@@ -1,39 +1,59 @@
 {
   "name": "Rebecca",
   "description": "Rebecca scheme by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#292a44",
-    "DarkGray":    "#663399",
-    "DarkGreen":   "#383a62",
-    "DarkYellow":  "#666699",
-    "DarkBlue":    "#a0a0c5",
-    "DarkCyan":    "#f1eff8",
-    "Gray":        "#ccccff",
-    "White":       "#53495d",
-    "Red":         "#a0a0c5",
-    "DarkRed":     "#efe4a1",
-    "Yellow":      "#ae81ff",
-    "Green":       "#6dfedf",
-    "Cyan":        "#8eaee0",
-    "Blue":        "#2de0a7",
-    "Magenta":     "#7aa5ff",
-    "DarkMagenta": "#ff79c6"
+    "Black": "#292a44",
+    "DarkGray": "#663399",
+    "Cyan": "#383a62",
+    "Blue": "#666699",
+    "Yellow": "#a0a0c5",
+    "Green": "#f1eff8",
+    "Gray": "#ccccff",
+    "White": "#53495d",
+    "DarkRed": "#a0a0c5",
+    "Red": "#efe4a1",
+    "DarkYellow": "#ae81ff",
+    "DarkGreen": "#6dfedf",
+    "DarkCyan": "#8eaee0",
+    "DarkBlue": "#2de0a7",
+    "DarkMagenta": "#7aa5ff",
+    "Magenta": "#ff79c6"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

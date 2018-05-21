@@ -1,39 +1,59 @@
 {
   "name": "Material Darker",
   "description": "Material Darker scheme by Nate Peterson.",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#212121",
-    "DarkGray":    "#303030",
-    "DarkGreen":   "#353535",
-    "DarkYellow":  "#4a4a4a",
-    "DarkBlue":    "#b2ccd6",
-    "DarkCyan":    "#eeffff",
-    "Gray":        "#eeffff",
-    "White":       "#ffffff",
-    "Red":         "#f07178",
-    "DarkRed":     "#f78c6c",
-    "Yellow":      "#ffcb6b",
-    "Green":       "#c3e88d",
-    "Cyan":        "#89ddff",
-    "Blue":        "#82aaff",
-    "Magenta":     "#c792ea",
-    "DarkMagenta": "#ff5370"
+    "Black": "#212121",
+    "DarkGray": "#303030",
+    "Cyan": "#353535",
+    "Blue": "#4a4a4a",
+    "Yellow": "#b2ccd6",
+    "Green": "#eeffff",
+    "Gray": "#eeffff",
+    "White": "#ffffff",
+    "DarkRed": "#f07178",
+    "Red": "#f78c6c",
+    "DarkYellow": "#ffcb6b",
+    "DarkGreen": "#c3e88d",
+    "DarkCyan": "#89ddff",
+    "DarkBlue": "#82aaff",
+    "DarkMagenta": "#c792ea",
+    "Magenta": "#ff5370"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

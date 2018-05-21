@@ -1,39 +1,59 @@
 {
   "name": "OceanicNext",
   "description": "OceanicNext scheme by https://github.com/voronianski/oceanic-next-color-scheme.",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#1b2b34",
-    "DarkGray":    "#343d46",
-    "DarkGreen":   "#4f5b66",
-    "DarkYellow":  "#65737e",
-    "DarkBlue":    "#a7adba",
-    "DarkCyan":    "#c0c5ce",
-    "Gray":        "#cdd3de",
-    "White":       "#d8dee9",
-    "Red":         "#ec5f67",
-    "DarkRed":     "#f99157",
-    "Yellow":      "#fac863",
-    "Green":       "#99c794",
-    "Cyan":        "#5fb3b3",
-    "Blue":        "#6699cc",
-    "Magenta":     "#c594c5",
-    "DarkMagenta": "#ab7967"
+    "Black": "#1b2b34",
+    "DarkGray": "#343d46",
+    "Cyan": "#4f5b66",
+    "Blue": "#65737e",
+    "Yellow": "#a7adba",
+    "Green": "#c0c5ce",
+    "Gray": "#cdd3de",
+    "White": "#d8dee9",
+    "DarkRed": "#ec5f67",
+    "Red": "#f99157",
+    "DarkYellow": "#fac863",
+    "DarkGreen": "#99c794",
+    "DarkCyan": "#5fb3b3",
+    "DarkBlue": "#6699cc",
+    "DarkMagenta": "#c594c5",
+    "Magenta": "#ab7967"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }

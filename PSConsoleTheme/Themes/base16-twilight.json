@@ -1,39 +1,59 @@
 {
   "name": "Twilight",
   "description": "Twilight scheme by David Hart (https://github.com/hartbit).",
-  "repository": "https://github.com/mmims/base16-psconsoletheme",
+  "repository": "https://github.com/mmims",
   "background": "Black",
-  "foreground": "DarkCyan",
-  "popupBackground": "DarkGreen",
+  "foreground": "Green",
+  "popupBackground": "Cyan",
   "popupForeground": "Gray",
   "palette": {
-    "Black":       "#1e1e1e",
-    "DarkGray":    "#323537",
-    "DarkGreen":   "#464b50",
-    "DarkYellow":  "#5f5a60",
-    "DarkBlue":    "#838184",
-    "DarkCyan":    "#a7a7a7",
-    "Gray":        "#c3c3c3",
-    "White":       "#ffffff",
-    "Red":         "#cf6a4c",
-    "DarkRed":     "#cda869",
-    "Yellow":      "#f9ee98",
-    "Green":       "#8f9d6a",
-    "Cyan":        "#afc4db",
-    "Blue":        "#7587a6",
-    "Magenta":     "#9b859d",
-    "DarkMagenta": "#9b703f"
+    "Black": "#1e1e1e",
+    "DarkGray": "#323537",
+    "Cyan": "#464b50",
+    "Blue": "#5f5a60",
+    "Yellow": "#838184",
+    "Green": "#a7a7a7",
+    "Gray": "#c3c3c3",
+    "White": "#ffffff",
+    "DarkRed": "#cf6a4c",
+    "Red": "#cda869",
+    "DarkYellow": "#f9ee98",
+    "DarkGreen": "#8f9d6a",
+    "DarkCyan": "#afc4db",
+    "DarkBlue": "#7587a6",
+    "DarkMagenta": "#9b859d",
+    "Magenta": "#9b703f"
   },
   "tokens": {
-    "Command":   "Blue",
-    "Comment":   "DarkYellow",
-    "Keyword":   "Magenta",
-    "Member":    "Blue",
-    "Number":    "DarkRed",
-    "Operator":  "Cyan",
-    "Parameter": "DarkRed",
-    "String":    "Green",
-    "Type":      "Yellow",
-    "Variable":  "Red"
+    "readline": {
+      "foreground": {
+        "Command": "DarkBlue",
+        "Comment": "Yellow",
+        "ContinuationPrompt": "Green",
+        "DefaultToken": "Green",
+        "Emphasis": "DarkCyan",
+        "Error": "DarkRed",
+        "Keyword": "DarkMagenta",
+        "Member": "White",
+        "Number": "White",
+        "Operator": "Green",
+        "Parameter": "Blue",
+        "String": "DarkGreen",
+        "Type": "DarkMagenta",
+        "Variable": "Red"
+      }
+    },
+    "write": {
+      "foreground": {
+        "Error": "DarkRed",
+        "Warning": "DarkYellow",
+        "Verbose": "DarkYellow",
+        "Debug": "DarkYellow",
+        "Progress": "Yellow"
+      },
+      "background": {
+        "Progress": "DarkGray"
+      }
+    }
   }
 }
