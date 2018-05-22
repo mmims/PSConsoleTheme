@@ -2,7 +2,7 @@
 
 PowerShell module to manage Windows console colors and PSReadline token colors.
 
-![psconsoletheme](https://user-images.githubusercontent.com/534908/39327051-d7a2e86e-4964-11e8-8644-4f751ca5530f.gif)
+![psconsoletheme](https://user-images.githubusercontent.com/534908/40373755-9d66200c-5db5-11e8-8a08-49c50bef3129.gif)
 
 ## Install
 
