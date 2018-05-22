@@ -1,5 +1,18 @@
 # PSConsoleTheme Changes
 
+## Version 0.5.0
+
+Features
+
+* Support write token colors.
+* Support both background and foreground colors token configuration.
+* Theme file format specification modified to support new token settings.
+* Updated themes to support new format.
+
+Bug Fixes
+
+* Fix import/export issues with user configuration when theme is reset.
+
 ## Version 0.4.0
 
 Features
