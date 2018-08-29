@@ -18,15 +18,28 @@ function Out-Colors {
         $formatter.Deserialize($memStream)
     }
 
-    if (Get-Module PSReadline) {
+    if ($PSReadline = Get-Module PSReadLine) {
         $colorMap = CloneObject $Script:PSColorMap
         $options = Get-PSReadlineOption
-        $tokens = $options | Get-Member -MemberType Property -Name *ForegroundColor `
-            | ForEach-Object { $_.Name -replace '(.+)ForegroundColor', '$1' }
 
-        foreach ($t in $tokens) {
-            $color = Invoke-Expression "`$options.$($t)ForegroundColor.ToString()"
-            $colorMap[$color].Tokens += $t
+        if ($PSReadline.Version.Major -ge 2) {
+            $tokens = $options | Get-Member -MemberType Property -Name *Color `
+                | ForEach-Object { $_.Name -replace '(.+)Color', '$1' }
+
+            foreach ($t in $tokens) {
+                $ansiColor = Invoke-Expression "`$options.$($t)Color.ToString()"
+                $ansiColor = [regex]::Replace($ansiColor, '.*\[((?:\d{1,3};?)+)m', '$1')
+                $color = ($colorMap.GetEnumerator() | Where-Object { $_.Value.Ansi.FG -in ($ansiColor -split ';') } | Select-Object -First 1).Key
+                $colorMap[$color].Tokens += $t
+            }
+        } else {
+            $tokens = $options | Get-Member -MemberType Property -Name *ForegroundColor `
+                | ForEach-Object { $_.Name -replace '(.+)ForegroundColor', '$1' }
+
+            foreach ($t in $tokens) {
+                $color = Invoke-Expression "`$options.$($t)ForegroundColor.ToString()"
+                $colorMap[$color].Tokens += $t
+            }
         }
     }
 
@@ -188,7 +201,7 @@ $Script:PSColorMap = @{
     'DarkGray'    = @{
         'Ansi'   = @{
             'Name' = 'Bright Black'
-            'FG'   = '30;1'
+            'FG'   = '90'
             'BG'   = '100'
         }
         'Cmd'    = @{
@@ -200,7 +213,7 @@ $Script:PSColorMap = @{
     'Red'         = @{
         'Ansi'   = @{
             'Name' = 'Bright Red'
-            'FG'   = '31;1'
+            'FG'   = '91'
             'BG'   = '101'
         }
         'Cmd'    = @{
@@ -212,7 +225,7 @@ $Script:PSColorMap = @{
     'Green'       = @{
         'Ansi'   = @{
             'Name' = 'Bright Green'
-            'FG'   = '32;1'
+            'FG'   = '92'
             'BG'   = '102'
         }
         'Cmd'    = @{
@@ -224,7 +237,7 @@ $Script:PSColorMap = @{
     'Yellow'      = @{
         'Ansi'   = @{
             'Name' = 'Bright Yellow'
-            'FG'   = '33;1'
+            'FG'   = '93'
             'BG'   = '103'
         }
         'Cmd'    = @{
@@ -236,7 +249,7 @@ $Script:PSColorMap = @{
     'Blue'        = @{
         'Ansi'   = @{
             'Name' = 'Bright Blue'
-            'FG'   = '34;1'
+            'FG'   = '94'
             'BG'   = '104'
         }
         'Cmd'    = @{
@@ -248,7 +261,7 @@ $Script:PSColorMap = @{
     'Magenta'     = @{
         'Ansi'   = @{
             'Name' = 'Bright Magenta'
-            'FG'   = '35;1'
+            'FG'   = '95'
             'BG'   = '105'
         }
         'Cmd'    = @{
@@ -260,7 +273,7 @@ $Script:PSColorMap = @{
     'Cyan'        = @{
         'Ansi'   = @{
             'Name' = 'Bright Cyan'
-            'FG'   = '36;1'
+            'FG'   = '96'
             'BG'   = '106'
         }
         'Cmd'    = @{
@@ -272,7 +285,7 @@ $Script:PSColorMap = @{
     'White'       = @{
         'Ansi'   = @{
             'Name' = 'Bright White'
-            'FG'   = '37;1'
+            'FG'   = '97'
             'BG'   = '107'
         }
         'Cmd'    = @{

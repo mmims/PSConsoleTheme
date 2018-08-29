@@ -77,23 +77,32 @@ function Set-TokenColorConfiguration {
         Set-TokenColorConfiguration -Reset
     }
 
-    if (Get-Module PSReadLine) {
+
+    $psr2colors = @{}
+
+    if ($PSReadline = Get-Module PSReadLine) {
         Write-Debug "$action Readline Tokens"
         # Breaking changes are coming in PSReadLine 2.0. Colors should be set via the -Color parameter with a hashtable
         foreach ($token in @('ContinuationPrompt', 'DefaultToken', 'Comment', 'Keyword', 'String', 'Operator', 'Variable', 'Command', 'Parameter', 'Type', 'Number', 'Member', 'Emphasis', 'Error')) {
+            Write-Debug "TOKEN $token"
             if ($tokenColors.foreground -and (Get-Member $token -InputObject ($tokenColors.foreground))) {
-                if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
-                    $expression = "Set-PSReadlineOption -$($token)ForegroundColor $($tokenColors.foreground.($token))"
-                    Write-Debug $expression
-                    Invoke-Expression $expression
-                }
-                elseif ($token -eq 'DefaultToken') {
-                    Write-Debug "Set-PSReadlineOption 'None' -ForegroundColor $($tokenColors.foreground.($token))"
-                    Set-PSReadlineOption 'None' -ForegroundColor $tokenColors.foreground.($token)
-                }
-                else {
-                    Write-Debug "Set-PSReadlineOption $token -ForegroundColor $($tokenColors.foreground.($token))"
-                    Set-PSReadlineOption $token -ForegroundColor $tokenColors.foreground.($token)
+                if ($PSReadline.Version.Major -ge 2) {
+                    Write-Debug "Add Foreground $($token): $($tokenColors.foreground.($token))"
+                    $psr2colors.Add($token, "$([char]0x1b)[$($Script:PSColorMap[$tokenColors.foreground.($token)].Ansi.FG)")
+                } else {
+                    if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
+                        $expression = "Set-PSReadlineOption -$($token)ForegroundColor $($tokenColors.foreground.($token))"
+                        Write-Debug $expression
+                        Invoke-Expression $expression
+                    }
+                    elseif ($token -eq 'DefaultToken') {
+                        Write-Debug "Set-PSReadlineOption 'None' -ForegroundColor $($tokenColors.foreground.($token))"
+                        Set-PSReadlineOption 'None' -ForegroundColor $tokenColors.foreground.($token)
+                    }
+                    else {
+                        Write-Debug "Set-PSReadlineOption $token -ForegroundColor $($tokenColors.foreground.($token))"
+                        Set-PSReadlineOption $token -ForegroundColor $tokenColors.foreground.($token)
+                    }
                 }
             }
 
@@ -102,20 +111,32 @@ function Set-TokenColorConfiguration {
                 $background = $tokenColors.background.($token)
             }
             if ($background) {
-                if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
-                    $expression = "Set-PSReadlineOption -$($token)BackgroundColor $background"
-                    Write-Debug $expression
-                    Invoke-Expression $expression
-                }
-                elseif ($token -eq 'DefaultToken') {
-                    Write-Debug "Set-PSReadlineOption 'None' -BackgroundColor $background"
-                    Set-PSReadlineOption 'None' -BackgroundColor $background
-                }
-                else {
-                    Write-Debug "Set-PSReadlineOption $token -BackgroundColor $background"
-                    Set-PSReadlineOption $token -BackgroundColor $background
+                if ($PSReadline.Version.Major -ge 2) {
+                    Write-Debug "Add Background $($token): $background"
+                    $psr2colors[$token] += ";$($Script:PSColorMap[$background].Ansi.BG)"
+                } else {
+                    if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
+                        $expression = "Set-PSReadlineOption -$($token)BackgroundColor $background"
+                        Write-Debug $expression
+                        Invoke-Expression $expression
+                    }
+                    elseif ($token -eq 'DefaultToken') {
+                        Write-Debug "Set-PSReadlineOption 'None' -BackgroundColor $background"
+                        Set-PSReadlineOption 'None' -BackgroundColor $background
+                    }
+                    else {
+                        Write-Debug "Set-PSReadlineOption $token -BackgroundColor $background"
+                        Set-PSReadlineOption $token -BackgroundColor $background
+                    }
                 }
             }
+        }
+
+        if (($PSReadline.Version.Major -ge 2) -and ($psr2colors.Count -gt 0)) {
+            foreach ($key in @($psr2colors.Keys)) {
+                $psr2colors[$key] += 'm'
+            }
+            Set-PSReadLineOption -Colors $psr2colors
         }
     }
 
