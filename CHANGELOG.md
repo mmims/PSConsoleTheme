@@ -1,5 +1,15 @@
 # PSConsoleTheme Changes
 
+## Version 0.6.0-beta.1
+
+Features
+
+* Add support for PSReadline 2.0
+
+Bug Fixes
+
+* None
+
 ## Version 0.5.0
 
 Features

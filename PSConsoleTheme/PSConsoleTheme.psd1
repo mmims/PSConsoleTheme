@@ -12,7 +12,7 @@
 RootModule = '.\PSConsoleTheme.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.5.0'
+ModuleVersion = '0.6.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -27,7 +27,7 @@ Author = 'Michael Mims'
 CompanyName = ''
 
 # Copyright statement for this module
-Copyright = '(c) 2018 Michael Mims. All rights reserved.'
+Copyright = '(c) 2019 Michael Mims. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PowerShell module to manage Windows console colors and PSReadline token colors.'
@@ -110,7 +110,7 @@ PrivateData = @{
         # ReleaseNotes = ''
 
         # Prerelease string of this module
-        # Prerelease = ''
+        Prerelease = '-alpha1'
 
         # Flag to indicate whether the module requires explicit user acceptance for install/update
         # RequireLicenseAcceptance = $false
