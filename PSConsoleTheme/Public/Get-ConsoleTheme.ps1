@@ -40,8 +40,7 @@ function Get-ConsoleTheme {
     Process {
         switch ($PSCmdlet.ParameterSetName) {
             'Available' {
-                $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name | `
-                    Format-Table Name, @{Label = "Description"; Expression = {$_.Value.description}}
+                $PSConsoleTheme.Themes.GetEnumerator() | Sort-Object -Property Name | Foreach-Object { $_.Value }
             }
             'Refresh' {
                 $PSConsoleTheme.Themes = Get-Theme
@@ -50,7 +49,7 @@ function Get-ConsoleTheme {
                 $Name = $PSBoundParameters['Name']
 
                 if ($Name) {
-                    $PSConsoleTheme.Themes[$Name]
+                    $PSConsoleTheme.Themes[$Name] | Select-Object *
                 }
                 else {
                     if ($ShowColors) {

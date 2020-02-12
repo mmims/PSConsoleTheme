@@ -12,9 +12,14 @@ function Get-Theme {
     }
 
     $themes = @{}
+
+    $defaultDisplaySet = 'Name', 'Description'
+    $defaultDisplayPropertySet = New-Object System.Management.Automation.PSPropertySet('DefaultDisplayPropertySet',[string[]]$defaultDisplaySet)
+    $PSStandardMembers = [System.Management.Automation.PSMemberInfo[]]@($defaultDisplayPropertySet)
+
     foreach ($path in $ThemePath) {
         $configFiles = Get-ChildItem $path "*.json"
-    
+
         foreach ($config in $configFiles) {
             try
             {
@@ -25,6 +30,8 @@ function Get-Theme {
                         break
                     }
                     $theme | Add-Member path $config.FullName
+                    $theme | Add-Member MemberSet PSStandardMembers $PSStandardMembers
+                    $theme.PSObject.TypeNames.Insert(0, 'PSConsoleTheme.Theme')
                     $themes.Add($theme.name, $theme)
                 }
             } catch {
