@@ -1,10 +1,11 @@
 # PSConsoleTheme Changes
 
-## Version 0.6.0-beta.1
+## Version 0.6.0
 
 Features
 
 * Add support for PSReadline 2.0
+* Return PSCustomObjects from `Get-ConsoleTheme`
 
 Bug Fixes
 
