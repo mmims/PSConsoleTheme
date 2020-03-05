@@ -88,7 +88,7 @@ function Set-TokenColorConfiguration {
             if ($tokenColors.foreground -and (Get-Member $token -InputObject ($tokenColors.foreground))) {
                 if ($PSReadline.Version.Major -ge 2) {
                     Write-Debug "Add Foreground $($token): $($tokenColors.foreground.($token))"
-                    $psr2colors.Add($token, "$([char]0x1b)[$($Script:PSColorMap[$tokenColors.foreground.($token)].Ansi.FG)")
+                    $psr2colors.Add($token.Replace('Token', ''), "$([char]0x1b)[$($Script:PSColorMap[$tokenColors.foreground.($token)].Ansi.FG)")
                 } else {
                     if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
                         $expression = "Set-PSReadlineOption -$($token)ForegroundColor $($tokenColors.foreground.($token))"
@@ -113,7 +113,7 @@ function Set-TokenColorConfiguration {
             if ($background) {
                 if ($PSReadline.Version.Major -ge 2) {
                     Write-Debug "Add Background $($token): $background"
-                    $psr2colors[$token] += ";$($Script:PSColorMap[$background].Ansi.BG)"
+                    $psr2colors[$token.Replace('Token', '')] += ";$($Script:PSColorMap[$background].Ansi.BG)"
                 } else {
                     if ($token -in @('ContinuationPrompt', 'Emphasis', 'Error')) {
                         $expression = "Set-PSReadlineOption -$($token)BackgroundColor $background"
