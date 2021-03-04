@@ -45,21 +45,21 @@ function Out-Colors {
 
     switch ($Mode) {
         'Ansi' {
-            Write-Host ("`n{0,8} {1,-5} " -f '', '  m') -NoNewline
+            Write-Host ("`n{0,7} {1,-6} " -f '', '   m') -NoNewline
             foreach ($bg in ($Script:AnsiColorMap.GetEnumerator() | Where-Object { [System.Convert]::ToInt32($_.Value.BG) -le 47 } | Sort-Object { $_.Value.BG })) {
                 Write-Host ' ' -NoNewline
-                Write-Host ("{0,-5}" -f " $($bg.Value.BG)m") -NoNewline
+                Write-Host ("{0,-7}" -f "  $($bg.Value.BG)m") -NoNewline
             }
 
             Write-Host ''
             foreach ($fg in ($Script:AnsiColorMap.GetEnumerator() | Sort-Object { $_.Value.FG })) {
                 $fgcolor = $fg.Value.PShell.Name
-                Write-Host ("{0,-8} " -f "$($fg.Value.FG)m", ' gYw') -NoNewline
-                Write-Host ("{0,-5} " -f ' gYw') -ForegroundColor $fgcolor -NoNewline
+                Write-Host ("{0,-7} " -f "$($fg.Value.FG)m") -NoNewline
+                Write-Host ("{0,-6} " -f '  gYw') -ForegroundColor $fgcolor -NoNewline
                 foreach ($bg in ($Script:AnsiColorMap.GetEnumerator() | Where-Object { [System.Convert]::ToInt32($_.Value.BG) -le 47 } | Sort-Object { $_.Value.BG })) {
                     $bgcolor = $bg.Value.PShell.Name
                     Write-Host ' ' -NoNewline
-                    Write-Host ("{0,-5}" -f ' gYw') -BackgroundColor $bgcolor -ForegroundColor $fgcolor -NoNewline
+                    Write-Host ("{0,-7}" -f '  gYw') -BackgroundColor $bgcolor -ForegroundColor $fgcolor -NoNewline
                 }
                 Write-Host ''
             }

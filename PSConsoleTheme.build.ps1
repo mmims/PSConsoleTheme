@@ -1,6 +1,6 @@
 param (
     [ValidateSet('Release','Debug')]
-    [string]$Configuration = (property 'Configuration' 'Release'),
+    [string]$Configuration = (property 'Configuration' 'Debug'),
     [string]$NuGetApiKey = (property 'NuGetApiKey' ''),
     [switch]$User,
     [string]$Version
