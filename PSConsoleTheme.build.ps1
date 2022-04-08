@@ -6,14 +6,15 @@ param (
     [string]$Version
 )
 
-$targetDir = Join-Path $BuildRoot "module/$Configuration/PSConsoleTheme"
-if ($Configuration -eq 'Debug') {
-    $Global:PSConsoleThemeDebugSessionPath = $targetDir
-}
-
 function Get-Version {
     $manifest = Import-PowerShellDataFile 'PSConsoleTheme/PSConsoleTheme.psd1'
     [System.Version]::Parse($manifest.ModuleVersion)
+}
+
+$currentVersion = Get-Version
+$targetDir = Join-Path $BuildRoot "module/$Configuration"
+if ($Configuration -eq 'Debug') {
+    $Global:PSConsoleThemeDebugSessionPath = $targetDir
 }
 
 $mamlHelpParams = @{
@@ -47,15 +48,16 @@ task Install LayoutModule, {
         Release {
             $paths = $env:PSModulePath -split ';' | Where-Object { $_ -like "${env:USERPROFILE}*" }
             foreach ($path in $paths) {
-                if (!(Test-Path $paths)) {
+                if (!(Test-Path $path)) {
                     New-Item $path -ItemType Directory -Force | Out-Null
                 }
 
+                $modulePath = "$path\PSConsoleTheme\$currentVersion"
                 try {
-                    if (Test-Path "$path\PSConsoleTheme") {
-                        Remove-Item "$path\PSConsoleTheme" -Recurse -Force -ErrorAction Stop
+                    if (Test-Path $modulePath) {
+                        Remove-Item $modulePath -Recurse -Force -ErrorAction Stop
                     }
-                    Copy-Item $targetDir $path -Recurse
+                    Copy-Item $targetDir $modulePath -Recurse
                 }
                 catch {
                     Write-Error "Cannot install to $path. Module might be in use."
@@ -112,16 +114,15 @@ task UpdateVersion {
         throw 'No version specified'
     }
 
-    $current = Get-Version
     switch ($Version) {
         Major {
-            $update = "$($current.Major + 1).0.0"
+            $update = "$($currentVersion.Major + 1).0.0"
         }
         Minor {
-            $update = "$($current.Major).$($current.Minor + 1).0"
+            $update = "$($currentVersion.Major).$($currentVersion.Minor + 1).0"
         }
         Patch {
-            $update = "$($current.Major).$($current.Minor).$($current.Build + 1)"
+            $update = "$($currentVersion.Major).$($currentVersion.Minor).$($currentVersion.Build + 1)"
         }
         Default {
             if ([System.Version]::TryParse($Version, [ref]$null)) {
@@ -132,7 +133,7 @@ task UpdateVersion {
         }
     }
 
-    Write-Host "Updating version from [$current] to [$update]"
+    Write-Host "Updating version from [$currentVersion] to [$update]"
     $file = Resolve-Path 'PSConsoleTheme/PSConsoleTheme.psd1'
     $manifest = Get-Content $file -Raw
     $manifest = [regex]::Replace($manifest, "ModuleVersion = '.*'", "ModuleVersion = '$update'")

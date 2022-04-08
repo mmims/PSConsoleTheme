@@ -27,7 +27,7 @@ Author = 'Michael Mims'
 CompanyName = ''
 
 # Copyright statement for this module
-Copyright = '(c) 2019 Michael Mims. All rights reserved.'
+Copyright = '(c) 2022 Michael Mims. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PowerShell module to manage Windows console colors and PSReadline token colors.'

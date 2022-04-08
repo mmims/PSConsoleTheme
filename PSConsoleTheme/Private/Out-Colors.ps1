@@ -30,7 +30,7 @@ function Out-Colors {
                 $ansiColor = Invoke-Expression "`$options.$($t)Color.ToString()"
                 $ansiColor = [regex]::Replace($ansiColor, '.*\[((?:\d{1,3};?)+)m', '$1')
                 $color = ($colorMap.GetEnumerator() | Where-Object { $_.Value.Ansi.FG -in ($ansiColor -split ';') } | Select-Object -First 1).Key
-                $colorMap[$color].Tokens += $t
+                if($color) { $colorMap[$color].Tokens += $t }
             }
         } else {
             $tokens = $options | Get-Member -MemberType Property -Name *ForegroundColor `

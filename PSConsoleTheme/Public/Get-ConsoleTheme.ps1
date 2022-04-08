@@ -52,17 +52,17 @@ function Get-ConsoleTheme {
                     $PSConsoleTheme.Themes[$Name] | Select-Object *
                 }
                 else {
-                    if ($ShowColors) {
-                        Out-Colors
-                        return
+                    $currentTheme = $PSConsoleTheme.User.Theme
+                    $ret ='Console theme not set.'
+                    if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {
+                        $ret = $PSConsoleTheme.Themes[$currentTheme]
                     }
 
-                    $currentTheme = $PSConsoleTheme.User.Theme
-                    if ($currentTheme -and ($PSConsoleTheme.Themes.ContainsKey($currentTheme))) {
-                        $PSConsoleTheme.Themes[$currentTheme]
-                    }
-                    else {
-                        'No console theme set.'
+                    if ($ShowColors) {
+                        Write-Host (" {0,13}: {1}" -f "Theme", $ret.name)
+                        Out-Colors
+                    } else {
+                        $ret
                     }
                 }
             }

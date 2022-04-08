@@ -1,3 +1,9 @@
+# PSConsoleTheme does not work with Windows Terminal sessions. Do not load module.
+if(Test-Path Env:\WT_SESSION) {
+    Write-Verbose "PSConsoleTheme module is not compatible with Windows Terminal. Import aborted."
+    return
+}
+
 # Get public and private functions
 $Public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue)
 $Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue)
