@@ -1,5 +1,11 @@
 # PSConsoleTheme Changes
 
+## Version 0.6.2
+
+Bug Fixes
+
+* Fix null array index in Out-Colors due to ANSI 256-color escape sequence.
+
 ## Version 0.6.1
 
 Bug Fixes
